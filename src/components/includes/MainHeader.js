@@ -96,7 +96,8 @@ const LeftTitle = styled.div`
 `;
 const Paragraph = styled.p`
 	text-align: center;
-	font-size: 14px;
+	font-size: 13px;
+	font-weight: 600;
 `;
 const RightSaleTimer = styled.div`
 	width: 36%;
@@ -124,7 +125,7 @@ const DayLabel = styled.span`
 
 const Time = styled.h2`
 	font-size: 20px;
-	
+	font-weight: 600;
 `;
 const Hours = styled.div`
   	width: 15%;
