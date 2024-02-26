@@ -26,7 +26,6 @@ function MainHeader() {
 	}, []);
   return (
     <>
-		
 		<Main>
 			<Wrapper>
 				<TopHeader>

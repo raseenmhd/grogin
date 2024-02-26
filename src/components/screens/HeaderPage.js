@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-import arrow from "../../assets/images/Vector.svg"
-import search from "./../../assets/images/search.svg"
-import heart from "../../assets/images/heart.svg"
-import profile from "../../assets/images/profile.svg"
-import cart from "../../assets/images/cart.svg"
-import location from "../../assets/images/location.png"
-import logo from "../../assets/images/logo.png"
+import Navigation from "../includes/Navigations";
+
+
+import arrow from "../../assets/images/Vector.svg";
+import search from "./../../assets/images/search.svg";
+import heart from "../../assets/images/heart.svg";
+import profile from "../../assets/images/profile.svg";
+import cart from "../../assets/images/cart.svg";
+import location from "../../assets/images/location.png";
+import logo from "../../assets/images/logo.png";
+import Filter from './Filter';
 
 function HeaderPage() {
   return (
@@ -74,7 +78,7 @@ function HeaderPage() {
 					</MiddleContainer>
 					<RightContainer>
 							<Profile>
-								<Link to="#">
+								<Link to="login">
 									<ProfileIcon>
 										<Profilelogo src={profile}/>
 									</ProfileIcon>
@@ -106,6 +110,8 @@ function HeaderPage() {
 						</RightContainer>
 				</HeaderInner>
 			</HeaderMiddle>
+			<Navigation/>
+			<Filter/>
 		</Header>
 
 	</>
