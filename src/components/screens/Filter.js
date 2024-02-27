@@ -38,7 +38,7 @@ function Filter() {
 					</MaxPrice>
 				</PriceSlider>
 				<SliderPriceFilter>
-					<Box sx={{ width: 247 }}>
+					<Box sx={{ width: "100%" }}>
 						<Slider
 							getAriaLabel={() => 'Temperature range'}
 							value={value}
@@ -72,14 +72,65 @@ function Filter() {
 					<FilterButton>Filter</FilterButton>
 				</FilteredPriceRange>
 			</FilterSliderHeader>
+{/* //////////////////////////////// */}
+			<ProductCategory>
+				<CategoryTitle>
+					Product Categories
+				</CategoryTitle>
+			</ProductCategory>
+			<FilterByColor>
+				<Title>Filter by Color</Title>
+				<ContantBox>
+					<LeftContainer>
+						<ColorBox>
+						
+						</ColorBox>
+						<ColorName>
+							Green
+						</ColorName>
+					</LeftContainer>
+					<SelectedCount>
+								(1)
+					</SelectedCount>
+				</ContantBox>
+				
+			</FilterByColor>
+			<ProductBrand>
+				<Title>Filter by Brands</Title>
+				<From>
+					<ContantBox>
+						<LeftContainer>
+							<InputCheckBox type="checkbox" id="check2"></InputCheckBox>
+							<Label for="check2">Fresh</Label>
+						</LeftContainer>
+						<SelectedCount>
+								(1)
+						</SelectedCount>
+					</ContantBox>
+				</From>
+			</ProductBrand>
+			<ProductStatus>
+				<Title>Filter by Brands</Title>
+				<From>
+					<Statusbar>
+						<Checkbox>
+							<InputCheckBox type="checkbox" id="check"></InputCheckBox>
+							<Label for="check">In Stock</Label>
+						</Checkbox>
+						<Checkbox>
+							<InputCheckBox  type="checkbox" id="check1"></InputCheckBox>
+							<Label for="check1">On Sale</Label>
+						</Checkbox>
+					</Statusbar>
+				</From>
+			</ProductStatus>
 	  	</FilterContainer>
 	</MainContainer>
   );
 }
 
 const MainContainer = styled.div`
-	width: 22%;
-	padding-left: 50px;
+	width: 20%;
 `;
 
 const FilterContainer = styled.div`
@@ -88,13 +139,13 @@ const FilterContainer = styled.div`
 
 const FilterSliderHeader = styled.div`
 	padding-bottom: 30px;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #E5E7EB;
 `;
 
 const WidgetTitle = styled.h2`
 	font-size: 16px;
 	font-weight: bold;
-	padding: 20px 0;
+	margin-bottom: 20px ;
 `;
 
 const PriceSlider = styled.div`
@@ -119,7 +170,7 @@ const Separator = styled.span`
 `;
 
 const PriceTitle = styled.label`
-	font-size: 14px;
+	font-size: 13px;
 	opacity: 0.7;
 	margin-bottom: 5px;
 	display: inline-block;
@@ -170,5 +221,86 @@ const FilterButton = styled.button`
     font-weight: 600;
     background-color: #E5E7EB;
     border-radius: 10px;
+	cursor: pointer;
 `;
+
+////////////////////////////////
+
+const ProductCategory = styled.div`
+	padding: 20px 0;
+	border-bottom: 1px solid #E5E7EB;
+`;
+
+const CategoryTitle = styled.h3`
+	font-size: 16px;
+	font-weight: bold;
+`;
+
+const FilterByColor = styled.div`
+	padding: 20px 0;
+	border-bottom: 1px solid #E5E7EB;
+`;
+
+const ColorBox = styled.div`
+	width: 20px;
+	height: 20px;
+	border-radius: 50px;
+	background-color: #81D742;
+	
+`;
+const ContantBox = styled.div`
+	margin-top: 20px ;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
+const LeftContainer = styled.div`
+	display: flex;
+	align-items: center;
+`;
+const Title = styled.h3`
+	font-size: 16px;
+	font-weight: bold;
+	
+`;
+const ColorName = styled.h5`
+	font-size: 14px;
+	margin-left: 10px;
+`;
+
+const SelectedCount = styled.span`
+	font-size: 15px;
+	opacity: 0.8;
+`;
+const ProductBrand =styled.div`
+	padding: 20px 0;
+	border-bottom: 1px solid #E5E7EB;
+`;
+const ProductStatus = styled.div`
+  	padding: 20px 0;
+	border-bottom: 1px solid #E5E7EB;
+`;
+const Checkbox = styled.div`
+	display: block;
+`;
+const From = styled.div`
+  /* Add your styles for From here */
+`;
+
+const InputCheckBox = styled.input`
+  /* Add your styles for InputCheckBox here */
+`;
+
+const Statusbar = styled.div`
+	margin-top: 20px ;
+`;
+
+const Label = styled.label`
+    font-size: 15px;
+    margin-left: 10px;
+
+`;
+
+
+
 export default Filter;

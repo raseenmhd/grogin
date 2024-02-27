@@ -47,9 +47,9 @@ function Navigations() {
           			</CustomButton>
           			<CustomButton2>
             			<Link to="">
-						 	<Text>
+						 	<Textred>
 							 	Almost Finished
-							</Text>	
+							</Textred>	
            			 		<Badge>SALE</Badge>
 							<Arrow>
 								<Arrowimg src={arrowImage} />
@@ -59,13 +59,14 @@ function Navigations() {
         		</NavRight>
       		</Container>
     	</Nav>
+		
   );
 }
 
 const Nav = styled.nav`
-	max-width: 1440px;
 	padding: 0 50px;
 	border-bottom: 1px solid #E5E7EB;
+	max-width: 1440px;
 `;
 
 const Container = styled.div`
@@ -120,12 +121,13 @@ const Arrow = styled.div`
 const Arrowimg = styled.img`
 	width: 100%;
 	display: block;
+	filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(900%) hue-rotate(355deg);
 `;
 const CustomButton2 = styled.div`
 
 `;
 const Badge = styled.span`
-	background-color: red;
+	background-color: #DC2626;
 	border-radius: 5px;
 	color: white;
 	padding: 4px;
@@ -138,4 +140,10 @@ const Text = styled.h4`
 	font-size: 14px;
 	font-weight: 600;
 `
+const Textred = styled.h4`
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
+	color: #DC2626;
+`;
 export default Navigations;

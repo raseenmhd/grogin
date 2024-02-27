@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-import Navigation from "../includes/Navigations";
-
 
 import arrow from "../../assets/images/Vector.svg";
 import search from "./../../assets/images/search.svg";
@@ -13,12 +11,14 @@ import profile from "../../assets/images/profile.svg";
 import cart from "../../assets/images/cart.svg";
 import location from "../../assets/images/location.png";
 import logo from "../../assets/images/logo.png";
-import Filter from './Filter';
 
-function HeaderPage() {
+
+
+function Header() {
   return (
 	<>
-		<Header>
+		<HeaderContainer>
+			
 		  <HeaderTop>
 			<NavLeft>
 			  <Items>
@@ -110,15 +110,13 @@ function HeaderPage() {
 						</RightContainer>
 				</HeaderInner>
 			</HeaderMiddle>
-			<Navigation/>
-			<Filter/>
-		</Header>
+		</HeaderContainer>
 
 	</>
   );
 }
 
-const Header = styled.header`
+const HeaderContainer = styled.header`
  
   
 `;
@@ -159,8 +157,8 @@ const Paragraph = styled.li`
 	padding-left: 15px;
 `;
 const Bold = styled.span`
-  font-weight: bold;
-  color: #EA580C;
+	font-weight: bold;
+	color: #EA580C;
 `;
 const NavRight = styled.nav`
 	width: 17%;
@@ -188,7 +186,6 @@ const Button = styled.button`
 `;
 
 const HeaderMiddle = styled.div`
-	max-width: 1440px;
 	padding : 0 50px;
 	border-bottom: 1px solid #E5E7EB;
 `;
@@ -212,10 +209,10 @@ const Logo = styled.img`
 `;
 
 const MiddleContainer = styled.div`
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	width: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 const LocationButton = styled.div`
@@ -227,12 +224,12 @@ const LocationButton = styled.div`
 
 const ActionIcon = styled.div`
   	width: 40px;
-    height: 40px;
-    background-color: #E5E7EB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
+	height: 40px;
+	background-color: #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
 `;
 const Location = styled.div`
 	width: 18px;
@@ -343,4 +340,4 @@ const CartText = styled.p`
 `;
 
 
-export default HeaderPage;
+export default Header;

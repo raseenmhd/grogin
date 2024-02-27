@@ -3,12 +3,30 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 
-import HeaderPage from './HeaderPage'
+import HeaderPage from './Header';
+import Navigation from "../includes/Navigations";
+import MainHeader from '../includes/MainHeader';
+
+
+// images
+import arrow from "../../assets/images/Vector.svg"
+// images
 
 function LoginPage() {
   return (
 	<>
+		<MainHeader/>
 		<HeaderPage/>
+		<Navigation/>
+		<PaginationWrapper>
+			<PaginationContainer>
+				<HomePage>Home</HomePage>
+				<Arrow>
+					<Icon src={arrow} alt="Arrow" />
+				</Arrow>
+				<ShoppingPage>My account</ShoppingPage>
+			</PaginationContainer>
+		</PaginationWrapper>
 	  	<LoginPageContainer>
 			<LoginPageTitle>
 				<NavLink to="/login">
@@ -41,6 +59,39 @@ function LoginPage() {
   )
 }
 
+const PaginationWrapper = styled.div`
+	padding: 20px 50px 10px;
+`;
+
+const PaginationContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+`;
+
+const HomePage = styled.span`
+	font-size: 13px;
+	opacity: 0.7;
+	
+`;
+
+const Arrow = styled.div`
+	width: 8px;
+	margin: 0 10px 0 4px;
+`;
+
+const Icon = styled.img`
+	display: block;
+	width: 100%;
+	transform: rotate(-90deg);
+
+`;
+
+const ShoppingPage = styled.span`
+	font-size: 13px;
+	font-size: 600;
+`;
 
 const LoginPageContainer = styled.div`
 	width: 40%;
