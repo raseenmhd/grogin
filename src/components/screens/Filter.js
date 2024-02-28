@@ -9,7 +9,7 @@ function valuetext(value){
 }
 
 function Filter() {
-	const [value, setValue] = useState([0,0]);
+	const [value, setValue] = useState([0,30]);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);

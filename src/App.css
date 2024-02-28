@@ -19,7 +19,7 @@ del {
 	text-decoration: line-through;
 }
 body {
-	font-family: "GT-Eesti", Arial, Helvetica, sans-serif;
+	font-family: 'Poppins-Regular';
 	font-size: 17px;
 	color: #1C2C40;
 	overflow-x: hidden;
@@ -27,7 +27,7 @@ body {
 	font-weight: 400;
 }
 input,textarea,select{
-	font-family: "GT-Eesti", Arial, Helvetica, sans-serif;
+	font-family: 'Poppins-Regular';
 	font-weight: 400;
 }
 
@@ -50,7 +50,7 @@ a:hover,.submit:hover{
 p{
 	line-height:1.6em;
 	font-size: 16px;
-	font-family: "GT-Eesti", Arial;
+	font-family: 'Poppins-Regular';
 	font-weight: 400;
 }
 .hidden{
@@ -63,16 +63,7 @@ br.clear {
 .wrapper {
 	width: 90%;
 	margin: 0 auto;
-	max-width: 1450px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	max-width: 14400px;
 }
 
 

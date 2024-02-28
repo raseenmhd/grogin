@@ -48,7 +48,7 @@ const Icon = styled.img`
 
 const ShoppingPage = styled.span`
 	font-size: 13px;
-	font-size: 600;
+	font-weight: 600;
 `;
 
 export default Pagination;

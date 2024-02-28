@@ -92,6 +92,7 @@ const LoginPageContainer = styled.div`
 	width: 40%;
 	padding: 90px 0;
 	margin: 0 auto;
+	
 `;
 
 const LoginPageTitle = styled.div`

@@ -95,7 +95,7 @@ const LeftTitle = styled.div`
 `;
 const Paragraph = styled.p`
 	text-align: center;
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: 600;
 `;
 const RightSaleTimer = styled.div`
@@ -106,24 +106,25 @@ const RightSaleTimer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.7;
+  margin-right: 5px;
 `;
 
 const Days = styled.div`
-	width: 14%;
+	width: 13%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 `;
 
 const DayLabel = styled.span`
-  font-size: 14px;
+  font-size: 12px;
   opacity: 0.7;
 `;
 
 const Time = styled.h2`
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 600;
 `;
 const Hours = styled.div`
@@ -134,19 +135,19 @@ const Hours = styled.div`
 `;
 
 const HourLabel = styled.span`
-	font-size: 14px;
+	font-size: 12px;
 	opacity: 0.7;
 `;
 
 const Minits = styled.div`
-	width: 18%;
+	width: 19%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 `;
 
 const MinitLabel = styled.span`
-  	font-size: 14px;
+  	font-size: 12px;
 	opacity: 0.7;
 `;
 
@@ -158,7 +159,7 @@ const Seconds = styled.div`
 `;
 
 const SecondLabel = styled.span`
-  	font-size: 14px;
+  	font-size: 12px;
 	opacity: 0.7;
 	
 `;

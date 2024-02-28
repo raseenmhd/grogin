@@ -219,7 +219,7 @@ const LocationButton = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 11%;
+	width: 12%;
 `;
 
 const ActionIcon = styled.div`

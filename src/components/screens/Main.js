@@ -7,6 +7,9 @@ import Filter from './Filter';
 import Pagination from "../includes/Pagination"
 import styled from 'styled-components';
 import Spotlight from '../screens/Spotlight';
+import Footer from '../screens/Footer';
+
+
 
 function Main() {
   return (
@@ -19,12 +22,13 @@ function Main() {
 			<Filter/>
 			<Spotlight/>
 		</SpotlightContainer>
+		<Footer/>
 				
 	</>
   )
 }
 const SpotlightContainer = styled.section`
-	padding: 20px 50px 0;
+	padding: 20px 50px 50px;
 	display : flex;
 	justify-content: space-between;
 `;
