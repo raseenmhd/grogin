@@ -141,15 +141,15 @@ function ProductList() {
 }
 const ProductContainer = styled.div`
 	width: 100%;
-	border: 1px solid #E5E7EB;
+	border: 2px solid #E5E7EB;
 	border-radius: 10px;
 	display: flex;
 	flex-wrap: wrap;
 `;
 const ProductTable = styled.div`
 	width: 20%;
-	border: 1px solid #E5E7EB;
-	border: 1px solid #E5E7EB;
+	border-right: 1px solid #E5E7EB;
+	border-bottom: 1px solid #E5E7EB;
 	padding: 15px;
 	position: relative;
 `;
