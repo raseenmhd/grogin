@@ -1,19 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import styled from 'styled-components';
+
 
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+
+
+import plusIcon from "../../assets/images/plus.svg"
+import { Productcategory } from '../data/data';
+
 
 function valuetext(value){
 	return `${value}°C`;
 }
 
-function Filter() {
-	const [value, setValue] = useState([0,30]);
+
+function Filter({filterResult}) {
+	
+	const [value, setValue] = useState([30]);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	}
+
+	const handleTextInput = (event) => {
+		const newvalue = event.target.value === '' ? '' : Number(event.target.value);
+		setValue(newvalue); 
+	}
+//
+const [selectedCategories, setSelectedCategories] = useState([]);
+
+	useEffect(() => {
+		filterResult(selectedCategories);
+	}, [selectedCategories, filterResult]);
+
+	const toggleCategorySelection = (categoryName) => {
+		if (selectedCategories.includes(categoryName)) {
+			setSelectedCategories(selectedCategories.filter(cat => cat !== categoryName));
+		} else {
+			setSelectedCategories([...selectedCategories, categoryName]);
+		}
+	};
 
   return (
 	<MainContainer>
@@ -34,7 +61,7 @@ function Filter() {
 						<PriceTitle htmlFor="maxprice">
 							Max price
 						</PriceTitle>
-						<PriceInput type="text" id="maxprice" placeholder="Max price" defaultValue="30"/>
+						<PriceInput type="text" id="maxprice" placeholder="Max price" Value={value} onChange={handleTextInput}/>
 					</MaxPrice>
 				</PriceSlider>
 				<SliderPriceFilter>
@@ -67,17 +94,36 @@ function Filter() {
 						<FilterTitle>Price:</FilterTitle>
 						<FilterMinPrice>$0 </FilterMinPrice>
 						<Divide></Divide>
-						<FilterMaxPrice>$20</FilterMaxPrice>
+						<FilterMaxPrice>${value}</FilterMaxPrice>
 					</FilteredContainer>
 					<FilterButton>Filter</FilterButton>
 				</FilteredPriceRange>
 			</FilterSliderHeader>
+
 {/* //////////////////////////////// */}
+
 			<ProductCategory>
 				<CategoryTitle>
 					Product Categories
 				</CategoryTitle>
+				{Productcategory.map((category)=>{
+					return (
+						<CategoryBox key={category.id}>
+							<LeftContainer onChange={() => toggleCategorySelection(category.category_name)}>
+								<InputCheckBox type="checkbox" id={category.idselector}></InputCheckBox>
+								<Label htmlFor={category.idselector}>{category.category_name}</Label>
+							</LeftContainer>
+							<SelectedCount>
+									<Add>
+										<AddIcon src={plusIcon}/>
+									</Add>
+							</SelectedCount>
+						</CategoryBox>
+					)
+				})}
 			</ProductCategory>
+
+
 			<FilterByColor>
 				<Title>Filter by Color</Title>
 				<ContantBox>
@@ -101,7 +147,7 @@ function Filter() {
 					<ContantBox>
 						<LeftContainer>
 							<InputCheckBox type="checkbox" id="check2"></InputCheckBox>
-							<Label for="check2">Fresh</Label>
+							<Label htmlFor="check2">Fresh</Label>
 						</LeftContainer>
 						<SelectedCount>
 								(1)
@@ -234,6 +280,7 @@ const ProductCategory = styled.div`
 const CategoryTitle = styled.h3`
 	font-size: 16px;
 	font-weight: bold;
+	margin-bottom: 20px;
 `;
 
 const FilterByColor = styled.div`
@@ -253,6 +300,20 @@ const ContantBox = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+`;
+const CategoryBox = styled.div`
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	line-height: 30px;
+`;
+const Add = styled.span`
+	width: 10px;
+`;
+const AddIcon = styled.img`
+	display: block;
+	width: 100%;
 `;
 const LeftContainer = styled.div`
 	display: flex;

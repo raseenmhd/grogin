@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-import email from "../../assets/images/email.svg"
+import email from "../../../assets/images/email.svg"
 
 function FooterTop() {
   return (
@@ -16,7 +16,7 @@ function FooterTop() {
 				<RightSection>
 				<SubscribeEmail>
 					<Form>
-						<EmailLogo for="email" >
+						<EmailLogo htmlFor="email" >
 							<EmailIcon src={email}  alt="Email Icon" />
 						</EmailLogo>
 						<EmailInput type="email" id="email" placeholder="Enter Your email address" />

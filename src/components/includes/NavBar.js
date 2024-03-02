@@ -6,7 +6,7 @@ import arrowImage from "../../assets/images/Vector.svg";
 
 
 
-function Navigations() {
+function NavBar() {
   return (
     	<Nav>
       		<Container>
@@ -146,4 +146,4 @@ const Textred = styled.h4`
 	font-weight: 600;
 	color: #DC2626;
 `;
-export default Navigations;
+export default NavBar;

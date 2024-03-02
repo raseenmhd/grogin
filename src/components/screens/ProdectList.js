@@ -1,141 +1,60 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import image from "../../assets/images/image1.png"
+
 import stoke from "../../assets/images/cart.svg"
 import Favoriteicon from "../../assets/images/heart.svg"
-import image1 from "../../assets/images/image2.png"
-import image2 from "../../assets/images/image3.png"
-import image3 from "../../assets/images/image4.png"
 
-function ProductList() {
+
+import star from "../../assets/images/star.svg"
+import start2 from "../../assets/images/start2.svg"
+
+
+function ProductList({data}) {
+
+	const limiteData = data.slice(0,15);
+	
   return (
 	<ProductContainer>
-	  	<ProductTable>
-			<ProductImage>
-				<Image src={image} />
-			</ProductImage>
-			<ProductName>Yellow Potatoes Whole Fresh, 5lb Bag</ProductName>
-			<ProductRating>Product Rating</ProductRating>
-			<Pricing>
-				<DiscountPrice>$27.90</DiscountPrice>
-				<OriginalPrice>$32.90</OriginalPrice>
-			</Pricing>
-			<StockIndication>
-				<StockIconBox>
-					<StockIcon src={stoke} />
-				</StockIconBox>
-				<Label>in stock </Label>
-			</StockIndication>
-			<Favorite>
-				<Offertag>
-					<Offer>16%</Offer>
-				</Offertag>
-				<FavoriteIcon>
-					<HeartIcon src={Favoriteicon}/>
-				</FavoriteIcon>
-			</Favorite>
-	  	</ProductTable>
-		  <ProductTable>
-			<ProductImage>
-				<Image src={image1} />
-			</ProductImage>
-			<ProductName>Yellow Potatoes Whole Fresh, 5lb Bag</ProductName>
-			<ProductRating>Product Rating</ProductRating>
-			<Pricing>
-				<DiscountPrice>$27.90</DiscountPrice>
-				<OriginalPrice>$32.90</OriginalPrice>
-			</Pricing>
-			<StockIndication>
-				<StockIconBox>
-					<StockIcon src={stoke} />
-				</StockIconBox>
-				<Label>in stock </Label>
-			</StockIndication>
-			<Favorite>
-				<Offertag>
-					<Offer>16%</Offer>
-				</Offertag>
-				<FavoriteIcon>
-					<HeartIcon src={Favoriteicon}/>
-				</FavoriteIcon>
-			</Favorite>
-	  	</ProductTable>
-		  <ProductTable>
-			<ProductImage>
-				<Image src={image2} />
-			</ProductImage>
-			<ProductName>Yellow Potatoes Whole Fresh, 5lb Bag</ProductName>
-			<ProductRating>Product Rating</ProductRating>
-			<Pricing>
-				<DiscountPrice>$27.90</DiscountPrice>
-				<OriginalPrice>$32.90</OriginalPrice>
-			</Pricing>
-			<StockIndication>
-				<StockIconBox>
-					<StockIcon src={stoke} />
-				</StockIconBox>
-				<Label>in stock </Label>
-			</StockIndication>
-			<Favorite>
-				<Offertag>
-					<Offer>16%</Offer>
-				</Offertag>
-				<FavoriteIcon>
-					<HeartIcon src={Favoriteicon}/>
-				</FavoriteIcon>
-			</Favorite>
-	  	</ProductTable>
-		  <ProductTable>
-			<ProductImage>
-				<Image src={image3} />
-			</ProductImage>
-			<ProductName>Yellow Potatoes Whole Fresh, 5lb Bag</ProductName>
-			<ProductRating>Product Rating</ProductRating>
-			<Pricing>
-				<DiscountPrice>$27.90</DiscountPrice>
-				<OriginalPrice>$32.90</OriginalPrice>
-			</Pricing>
-			<StockIndication>
-				<StockIconBox>
-					<StockIcon src={stoke} />
-				</StockIconBox>
-				<Label>in stock </Label>
-			</StockIndication>
-			<Favorite>
-				<Offertag>
-					<Offer>16%</Offer>
-				</Offertag>
-				<FavoriteIcon>
-					<HeartIcon src={Favoriteicon}/>
-				</FavoriteIcon>
-			</Favorite>
-	  	</ProductTable>
-		<ProductTable>
-			<ProductImage>
-				<Image src={image2} />
-			</ProductImage>
-			<ProductName>Yellow Potatoes Whole Fresh, 5lb Bag</ProductName>
-			<ProductRating>Product Rating</ProductRating>
-			<Pricing>
-				<DiscountPrice>$27.90</DiscountPrice>
-				<OriginalPrice>$32.90</OriginalPrice>
-			</Pricing>
-			<StockIndication>
-				<StockIconBox>
-					<StockIcon src={stoke} />
-				</StockIconBox>
-				<Label>in stock </Label>
-			</StockIndication>
-			<Favorite>
-				<Offertag>
-					<Offer>16%</Offer>
-				</Offertag>
-				<FavoriteIcon>
-					<HeartIcon src={Favoriteicon}/>
-				</FavoriteIcon>
-			</Favorite>
-	  	</ProductTable>
+		{limiteData.map((product) => {
+			return(	
+				<ProductTable key={product.id} >
+					 <NavLink to={`/product/${product.id}`}>
+						<ProductImage>
+							<Image src={product.cover_image} />
+						</ProductImage>
+						<ProductName>{product.title}</ProductName>
+						<ProductRating>
+							<Star src={star} />
+							<Star src={star} />
+							<Star src={star} />
+							<Star src={star} />
+							<Star src={start2} />
+						</ProductRating>
+						<Pricing>
+							<DiscountPrice>${product.offer_price}</DiscountPrice>
+							<OriginalPrice>${product.orginal_price}</OriginalPrice>
+						</Pricing>
+						<StockIndication>
+							<StockIconBox>
+								<StockIcon src={stoke} />
+								
+							</StockIconBox>
+							<Label>in stock </Label>
+						</StockIndication>
+						<Favorite>
+							<Offertag>
+								<Offer>{product.descount}</Offer>
+							</Offertag>
+							<FavoriteIcon>
+                                <HeartIcon scr={Favoriteicon}/>
+                            </FavoriteIcon>
+						</Favorite>
+					</NavLink>
+				</ProductTable>	
+			)
+		})}
 	</ProductContainer>
   );
 }
@@ -146,6 +65,7 @@ const ProductContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 `;
+
 const ProductTable = styled.div`
 	width: 20%;
 	border-right: 1px solid #E5E7EB;
@@ -163,11 +83,18 @@ const Image = styled.img`
 
 `;
 const ProductName = styled.h3`
-	font-size: 14px;
+	font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+
 `;
 const ProductRating = styled.div`
 	font-size: 14px;
 	margin: 10px 0;
+`;
+const Star = styled.img`
+
 `;
 const Pricing = styled.div`
 	display: flex;

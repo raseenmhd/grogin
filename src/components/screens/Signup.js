@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 
 import HeaderPage from './Header';
-import Navigation from "../includes/Navigations";
+import NavBar from "../includes/NavBar";
 import MainHeader from '../includes/MainHeader';
 
 
@@ -17,14 +17,18 @@ function LoginPage() {
 	<>
 		<MainHeader/>
 		<HeaderPage/>
-		<Navigation/>
+		<NavBar/>
 		<PaginationWrapper>
 			<PaginationContainer>
 				<HomePage>Home</HomePage>
 				<Arrow>
 					<Icon src={arrow} alt="Arrow" />
 				</Arrow>
-				<ShoppingPage>My account</ShoppingPage>
+				<Page>My account</Page>
+				<Arrow>
+					<Icon src={arrow} alt="Arrow" />
+				</Arrow>
+				<Page>Register</Page>
 			</PaginationContainer>
 		</PaginationWrapper>
 	  	<LoginPageContainer>
@@ -88,7 +92,7 @@ const Icon = styled.img`
 
 `;
 
-const ShoppingPage = styled.span`
+const Page = styled.span`
 	font-size: 13px;
 	font-size: 600;
 `;

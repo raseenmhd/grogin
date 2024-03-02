@@ -12,90 +12,90 @@ import listIcon1 from "../../assets/images/Icon1.svg";
 import listIcon2 from "../../assets/images/Icon 2.svg";
 
 
-function Spotlight() {
+function Spotlight({data}) {
 	return (
 		<>
-				<SpotlightContainer>
-						<PageHeader>
-								<ShopPageBanner>
-									<EntryInner>
-										<EntryHeader>
-											<Subtitle>
-												Only This Week
-											</Subtitle>
-										</EntryHeader>
-										<EntryTitle>
-											Grocery store with different
-											treasures
-										</EntryTitle>
-										<Paragraph>
-											We have prepared special discounts for you on grocery
-											products...
-										</Paragraph>
-										<ShopNowButton>
-											<ButtonTitle>
-												ShopNow
-											</ButtonTitle>
-											<ButtonIcon>
-												<ArrowIcon src={shoparrow}/>
-											</ButtonIcon>
-										</ShopNowButton>
-									</EntryInner>
-									<EntryMedia>
-										<Image src={banner}/>
-									</EntryMedia>
-								</ShopPageBanner>
-						</PageHeader>
-						<ProdectBeforShop>
-							<ProdectList>
-								<ListProdectCount>
-									<CountText>
-										Showing 1–20 of 159 results
-									</CountText>
-								</ListProdectCount>
-								<ProdectSortSection>
-									<SortByPrice>
-										<SortSubtitle>
-											Sort:
-										</SortSubtitle>
-										<SortingItem>
-											<SortingOptions>
-												{/* <SortItem>Sort by average rating</SortItem> */}
-												{/* <SortItem>Sort by latest</SortItem> */}
-												{/* <SortItem>Sort by popularity</SortItem>
-												<SortItem>Sort by price: high to low</SortItem> */}
-												<SortItem>Sort by price: low to high</SortItem>
-												<DownArrow src={arrow}/>
-											</SortingOptions>
-										</SortingItem>
-									</SortByPrice>
-									<SortByItems>
-										<SortSubtitle>
-											Show:
-										</SortSubtitle>
-										<SortingItem>
-											<SortingOptions>
-												<SortItem>20 items</SortItem>
-												{/* <SortItem>30 items</SortItem>
-												<SortItem>40 items</SortItem>
-												<SortItem>50 items</SortItem> */}
-												<DownArrow src={arrow}/>
-											</SortingOptions>
-										</SortingItem>
-									</SortByItems>
-									<ProdectViweButton>
-										<LinkActive>
-											<ListIcon src={listIcon1}/>
-										</LinkActive>
-										<LinkList>
-											<ListIcon src={listIcon2}/>
-										</LinkList>
-									</ProdectViweButton>
-								</ProdectSortSection>
-							</ProdectList>
-						</ProdectBeforShop>
-						<ProductListpage />
-				</SpotlightContainer>
+			<SpotlightContainer>
+					<PageHeader>
+							<ShopPageBanner>
+								<EntryInner>
+									<EntryHeader>
+										<Subtitle>
+											Only This Week
+										</Subtitle>
+									</EntryHeader>
+									<EntryTitle>
+										Grocery store with different
+										treasures
+									</EntryTitle>
+									<Paragraph>
+										We have prepared special discounts for you on grocery
+										products...
+									</Paragraph>
+									<ShopNowButton>
+										<ButtonTitle>
+											ShopNow
+										</ButtonTitle>
+										<ButtonIcon>
+											<ArrowIcon src={shoparrow}/>
+										</ButtonIcon>
+									</ShopNowButton>
+								</EntryInner>
+								<EntryMedia>
+									<Image src={banner}/>
+								</EntryMedia>
+							</ShopPageBanner>
+					</PageHeader>
+					<ProdectBeforShop>
+						<ProdectList>
+							<ListProdectCount>
+								<CountText>
+									Showing 1–20 of 159 results
+								</CountText>
+							</ListProdectCount>
+							<ProdectSortSection>
+								<SortByPrice>
+									<SortSubtitle>
+										Sort:
+									</SortSubtitle>
+									<SortingItem>
+										<SortingOptions>
+											<SortItem>Sort by latest</SortItem>
+											<SortItem>Sort by average rating</SortItem>
+											<SortItem>Sort by popularity</SortItem>
+											<SortItem>Sort by price: high to low</SortItem> 
+											<SortItem>Sort by price: low to high</SortItem>
+											<DownArrow src={arrow}/>
+										</SortingOptions>
+									</SortingItem>
+								</SortByPrice>
+								<SortByItems>
+									<SortSubtitle>
+										Show:
+									</SortSubtitle>
+									<SortingItem>
+										<SortingOptions>
+											<SortItem>20 items</SortItem>
+											<SortItem>30 items</SortItem>
+											<SortItem>40 items</SortItem>
+											<SortItem>50 items</SortItem>
+											<DownArrow src={arrow}/>
+										</SortingOptions>
+									</SortingItem>
+								</SortByItems>
+								<ProdectViweButton>
+									<GridViweActive>
+										<ListIcon src={listIcon1}/>
+									</GridViweActive>
+									<GridViweList>
+										<ListIcon src={listIcon2}/>
+									</GridViweList>
+								</ProdectViweButton>
+							</ProdectSortSection>
+						</ProdectList>
+					</ProdectBeforShop>
+					<ProductListpage data={data}/>
+			</SpotlightContainer>
 		</>
 	)
 }
@@ -115,7 +115,7 @@ const EntryInner = styled.div`
 	max-width: 45%;
 	position:  absolute;
 	z-index: 1;
-	top: 30px;
+	top: 15px;
 	left: 30px;
 	
 `;
@@ -215,30 +215,34 @@ const ProdectSortSection = styled.div`
 `;
 
 const SortByPrice = styled.div`
+	width: 40%;
     display: flex;
 	align-items: center;
 	justify-content: space-between;
 `;
 
 const SortSubtitle = styled.span`
-    font-size: 14px;
+    font-size: 13px;
     opacity: 0.6;
 `;
 
 const SortingItem = styled.div`
-    /* Add CSS styles for SortingItem here */
+	width: 100%;
+	margin-left: 7px;
 `;
 
-const SortingOptions = styled.div`
+const SortingOptions = styled.select`
     display: flex;
 	align-items: center;
 	justify-content: space-between;
 	cursor: pointer;
+	width: 100%;
 `;
 
-const SortItem = styled.div`
-    font-size: 14px;
+const SortItem = styled.option`
+    font-size: 13px;
     margin: 0 10px;
+
 `;
 
 const DownArrow = styled.img`
@@ -246,6 +250,7 @@ const DownArrow = styled.img`
 	width: 10px;
 `;
 const SortByItems = styled.div`
+	width: 40%;
     display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -253,12 +258,13 @@ const SortByItems = styled.div`
 `;
 
 const ProdectViweButton = styled.div`
+	width:14%;
     display: flex;
 	align-items: center;
 	justify-content: space-between;
 `;
 
-const LinkList = styled.div`
+const GridViweList = styled.div`
     width: 20px;
 	cursor: pointer;
 `;
@@ -268,7 +274,7 @@ const ListIcon = styled.img`
 	width: 100%;
 `;
 
-const LinkActive = styled.div`
+const GridViweActive = styled.div`
 	width: 26px;
 	margin-right: 5px;
     background-color: #D1D5DB;

@@ -15,7 +15,7 @@ function FooterBottom() {
                     </SiteCopyright>
                     <SitePymentCards>
                         {PymentCards.map((card, id) => (
-                            <CardBox>
+                            <CardBox key={card.id}>
                                 <Link>
                                     <PymentCarsIcon key={id} src={card.image} />
                                 </Link>
@@ -26,7 +26,7 @@ function FooterBottom() {
                 <FooterRight>
                     <FooterCopyRightMenu>
                         {CopyRightMenu.map((title) =>(
-                            <Menu>
+                            <Menu key={title.id}>
                                 <MenuItem>{title.menuitems}</MenuItem>
                             </Menu>
                         ))}

@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FooterWidget1 ,FooterWidget2,FooterWidget3} from "../../data/data";
-import email from "../../assets/images/email.svg";
-import phone from "../../assets/images/phone.svg";
-import facebook from "../../assets/images/facebook.svg";
-import linkdin from "../../assets/images/linkdin.svg";
-import insta from "../../assets/images/insta.svg";
-import twiter from "../../assets/images/twiter.svg";
-import appstore from "../../assets/images/appstore.png"
-import playstore from "../../assets/images/playstore.png"
+import email from "../../../assets/images/email.svg";
+import phone from "../../../assets/images/phone.svg";
+import facebook from "../../../assets/images/facebook.svg";
+import linkdin from "../../../assets/images/linkdin.svg";
+import insta from "../../../assets/images/insta.svg";
+import twiter from "../../../assets/images/twiter.svg";
+import appstore from "../../../assets/images/appstore.png"
+import playstore from "../../../assets/images/playstore.png"
 
 function FooterMiddle() {
   return (
@@ -46,31 +46,31 @@ function FooterMiddle() {
 					<WidgeTitle>
 					Make Money with Us
 					</WidgeTitle>
-					  <WidgetConatiner>
-					  {FooterWidget1.map((Item) => (
-						<Text>{Item.Title}</Text>
-						))}
-					  </WidgetConatiner>
+					{FooterWidget1.map((Item) => (
+						<WidgetConatiner key={Item.id}>
+							<Text>{Item.Title}</Text>
+						</WidgetConatiner>
+					))}
 				</Widget1>
 				<Widget2>
 					<WidgeTitle>
 					   Let Us Help You
 					</WidgeTitle>
-					<WidgetConatiner>
-					  {FooterWidget2.map((Item) => (
-						<Text>{Item.Title}</Text>
-						))}
-					  </WidgetConatiner>
+					{FooterWidget2.map((Item) => (
+						<WidgetConatiner key={Item.id}>
+							<Text>{Item.Title}</Text>
+						</WidgetConatiner>
+					))}
 				</Widget2>
 				<Widget3>
 					<WidgeTitle>
 					  Get to Know Us
 					</WidgeTitle>
-					<WidgetConatiner>
-					  {FooterWidget3.map((Item) => (
-						<Text>{Item.Title}</Text>
-						))}
-					  </WidgetConatiner>
+					{FooterWidget3.map((Item) => (
+						<WidgetConatiner key={Item.id}>
+							<Text>{Item.Title}</Text>
+						</WidgetConatiner>
+					))}
 				</Widget3>
 				<Widget4>
 					<WidgeTitle>
