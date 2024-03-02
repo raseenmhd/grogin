@@ -13,16 +13,18 @@ import Footer from './Footer';
 
 import { Products } from "../data/data"; 
 
+import ReactImageMagnify from 'react-image-magnify';
 
 import favorite from "../../assets/images/heart.svg";
 import share from "../../assets/images/share.svg";
 import compaerIcon from "../../assets/images/campare.svg";
 import card from "../../assets/images/Card.svg";
 import warranty from "../../assets/images/warranty.svg";
-// import bag from "../../assets.images/bag.svg"
 import star from "../../assets/images/star.svg"
 import start2 from "../../assets/images/start2.svg"
-
+import bag from "../../assets/images/bang.svg"
+import maxIcon from "../../assets/images/maxicon.svg"
+import minIcon from "../../assets/images/minicon.svg"
 
 
 
@@ -49,7 +51,19 @@ function SinglePage() {
         return () => clearInterval(interval);
     }, []);
 //
+	const [value, setValue] = useState(1);
 
+	const handleIncrement = () => {
+		setValue(prevValue => prevValue + 1);
+	};
+
+	const handleDecrement = () => {
+		if (value > 1) {
+			setValue(prevValue => prevValue - 1);
+		}
+	};
+
+//
 	const { productId } = useParams();
 
     const product = Products.find((product) => product.id === productId);
@@ -66,8 +80,19 @@ function SinglePage() {
             <Wrapper>
                 <ProductContainer>
                     <ProductGallery>
-                        <ProductImage>
-                            <Image src={product.cover_image} alt="Product" />
+                        <ProductImage >
+						<ReactImageMagnify {...{
+							smallImage: {
+								alt: 'Wristwatch by Ted Baker London',
+								isFluidWidth: true,
+								src: product.cover_image,
+								},
+								largeImage: {
+									src: product.cover_image,
+									width: 1400,
+									height: 1400,
+								}
+							}} />
                         </ProductImage>
                     </ProductGallery>
                     <ProductDetails>
@@ -119,12 +144,24 @@ function SinglePage() {
                                 <Span>Remains until the end of the offer.</Span>
                             </OfferRemainter>
                         </SpecialOfferTimer>
-						
+						<CartContainer>
+							<Quantity>
+							<MinIconbox onClick={handleDecrement}>
+								<MinIcon src={minIcon}/>
+								</MinIconbox>
+								<Input type="text" value={value} readOnly />
+								<MaxIconbox onClick={handleIncrement}>
+								<MaxIcon src={maxIcon}/>
+							</MaxIconbox>
+							</Quantity>
+							<CartButton> <Icon src={bag}/>Add to cart</CartButton>
+							<BuyButton><Icon src={bag}/>Buy Now</BuyButton>
+        				</CartContainer>
                         <ProdectNotices>
                             <NoticeBox>
                                 <Notice>
                                     <NoticeIcon>
-                                        <CreditCardIcon src={card} />
+                                        <CreditCardIcon id src={card} />
                                     </NoticeIcon>
                                     <NoticeDetails>
                                         <Paragraph>
@@ -190,18 +227,20 @@ const ProductContainer = styled.div`
 
 const ProductGallery = styled.div`
   	flex: 1;
+	z-index: 100;
 `;
 
 const ProductImage = styled.div`
-	width: 75%;
-	overflow: hidden;
+	width: 500px;
+	height: 500px;
+	
 `;
 
-const Image = styled.img`
- 	width: 100%;
-	display: block;
-	object-fit : cover;
-`;
+// const Image = styled.img`
+//  	width: 100%;
+// 	display: block;
+// 	object-fit : cover;
+// `;
 
 const ProductDetails = styled.div`
 	flex: 1;
@@ -260,16 +299,16 @@ const ProductPrice = styled.div`
 `;
 
 const OfferPrice = styled.span`
-  font-weight: bold;
-  color: red;
-  font-size: 30px;
+	font-weight: bold;
+	color: red;
+	font-size: 30px;
 `;
 
 const OrginalPrice = styled.span`
-  text-decoration: line-through;
-  color: #000;
-  font-size: 20px;
-  margin-left: 10px;
+	text-decoration: line-through;
+	color: #000;
+	font-size: 20px;
+	margin-left: 10px;
 `;
 const Button = styled.button`
 	font-size: 17px;
@@ -290,6 +329,69 @@ const SpecialOfferTimer = styled.div`
 	border:  1px solid #FED7AA;
 	border-radius: 10px;
 	color: #EA580C;
+`;
+const CartContainer = styled.div`
+    display: flex;
+    align-items: center;
+	justify-content: space-between;
+	width: 70%;
+	margin-top: 20px;
+`;
+
+const Quantity = styled.div`
+    display: flex;
+    align-items: center;
+	justify-content: space-between;
+	width: 30%;
+	border: 1px solid #000;
+    padding: 12px;
+    border-radius: 10px;
+`;
+
+const MinIconbox = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+`;
+const MinIcon = styled.img`
+	width: 100%;
+	display: block;
+`;
+const MaxIconbox = styled.div`
+    display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+const MaxIcon = styled.img`
+	width: 100%;
+	display: block;
+`;
+const Input = styled.input`
+    width: 20%;
+	text-align: center;
+`;
+
+const CartButton = styled.button`
+    font-size: 17px;
+    font-weight: bold;
+    padding: 15px;
+    color: #fff;
+    background-color: #16A34A;
+    border-radius: 10px;
+    cursor: pointer;
+`;
+const Icon =styled.img`
+	margin-right: 10px;
+`;
+const BuyButton = styled.button`
+	font-size: 17px;
+    font-weight: bold;
+    padding: 15px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+    cursor: pointer;
 `;
 const Semicolon = styled.p`
 	color: #000;
@@ -359,8 +461,7 @@ const Second = styled.span`
 `;
 
 const OfferRemainter = styled.div`
-	margin-left: 15px;
-	
+	margin-left: 15px;	
 `;
 
 const Span = styled.p`
@@ -407,6 +508,7 @@ const Bold = styled.h5`
 	font-weight: bold;
 	display: inline-block;
 	opacity: 0.8;
+	z-index: 0;
 `;
 const Bottom = styled.div`
 	display: flex;
