@@ -24,6 +24,9 @@ function Footer() {
 const FooterContainer = styled.section`
     padding: 0 50px;
     background-color: #f3f4f6;
+    @media all and (max-width: 640px){
+        padding: 0 15px;
+    }
 `;
 
 const FooterWrapper = styled.section`

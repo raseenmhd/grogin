@@ -116,8 +116,9 @@ function Header() {
 }
 
 const HeaderContainer = styled.header`
- 
-  
+	@media all and (max-width: 1280px){
+		display: none;
+	}
 `;
 
 const HeaderTop = styled.div`
@@ -219,6 +220,10 @@ const LocationButton = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 12%;
+	@media all and (max-width: 1380px){
+		width: 13%;
+		margin-left: 7px;
+	}
 `;
 
 const ActionIcon = styled.div`
@@ -281,6 +286,10 @@ const RightContainer = styled.div`
 	justify-content: space-between;
 	align-items: flex-end;
 	width: 15%;
+	@media all and (max-width: 1380px){
+		width: 18%;
+	}
+
 `;
 
 const Profile = styled.div`
@@ -336,7 +345,10 @@ const CartText = styled.p`
 	font-size: 12px;
 	text-align: center;
 	font-weight: bold;
+	
 `;
 
 
+
 export default Header;
+

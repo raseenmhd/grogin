@@ -40,16 +40,29 @@ function FooterBottom() {
 
 const FooterContainer = styled.div`
     padding:  45px 0;
-
+    @media all and (max-width: 768px){
+        padding: 20px 0;
+    }
 `;
 
 const FooterInner = styled.div`
     display: flex;
     justify-content: space-between;
+    @media all and (max-width: 768px){
+        display: block;
+    }
 `;
 
 const FooterLeft = styled.div`
     width: 50%;
+    @media all and (max-width: 1380px){
+		width: 40%;
+	}
+    @media all and (max-width: 768px){
+        width: 100%;
+        text-align: center;
+    }
+   
 `;
 
 const SiteCopyright = styled.p`
@@ -68,6 +81,16 @@ const SitePymentCards = styled.ul`
     align-items: center;
     justify-content: space-between;
     margin : 20px 0;
+    @media all and (max-width: 980px){
+        width: 70%;
+    }
+    @media all and (max-width: 768px){
+        margin: 10px auto;
+        width: 60%;
+    }
+    @media all and (max-width: 640px){
+        width: 80%;
+    }
 `;
 
 const CardBox = styled.li`
@@ -83,6 +106,27 @@ const PymentCarsIcon = styled.img`
 
 const FooterRight = styled.div`
     width: 26%;
+    @media all and (max-width: 1380px){
+		width: 35%;
+	}
+    @media all and (max-width: 1080px){
+		width: 38%;
+	}
+    @media all and (max-width: 980px){
+        width: 50%;
+    }
+    @media all and (max-width: 768px){
+        width: 65%;
+        margin: 0 auto;
+    }
+    @media all and (max-width: 640px){
+        width: 90%;
+    }
+    @media all and (max-width: 480px){
+        width: 100%;
+    }
+
+
 `;
 
 const FooterCopyRightMenu = styled.ul`
@@ -97,5 +141,8 @@ const Menu = styled.li`
 `;
 const MenuItem = styled.a`
     font-size: 12px;
+    @media all and (max-width: 360px){
+        font-size: 10px;
+    }
 `;
 export default FooterBottom;

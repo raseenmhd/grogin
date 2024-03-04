@@ -13,6 +13,7 @@ import Footer from '../screens/Footer';
 
 
 import { Products } from '../data/data';
+import RepHeader from '../includes/ResponsiveHeader/RepHeader';
 
 	
 function Main() {
@@ -33,6 +34,7 @@ function Main() {
 		</Helmet>
 		<MainHeader/>
 			<HeaderPage />
+			<RepHeader/>
 			<NavBar/>
 			<Pagination />
 		<SpotlightContainer>
@@ -50,5 +52,9 @@ const SpotlightContainer = styled.section`
 	margin: 0 auto;
 	max-width: 1440px;
 	justify-content: space-between;
+	@media all and (max-width: 640px){
+		padding: 10px 10px 25px;
+	}
 `;
+
 export default Main

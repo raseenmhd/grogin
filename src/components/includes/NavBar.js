@@ -66,6 +66,9 @@ function NavBar() {
 const Nav = styled.nav`
 	padding: 0 50px;
 	border-bottom: 1px solid #E5E7EB;
+	@media all and (max-width: 1280px){
+		display: none;
+	}
 `;
 
 const Container = styled.div`

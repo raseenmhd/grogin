@@ -123,6 +123,9 @@ function FooterMiddle() {
 const MiddleContainer = styled.div`
 	padding: 50px 0;
 	border-bottom: 1px solid #e5e7eb;
+	@media all and (max-width: 1380px){
+		padding: 30px 0;
+	}
 `;
 
 const MiddleInner = styled.div`
@@ -130,16 +133,27 @@ const MiddleInner = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+	@media all and (max-width: 1080px){
+		display: block;
+	}
+
 `;
 
 const ContactBlock = styled.div`
 	width: 30%;
+	@media all and (max-width: 1080px){
+		margin-bottom: 30px;
+		width: 100%;
+	}
 `;
 
 const WidgeTitle = styled.h3`
 	font-size: 15px;
 	font-weight: bold;
 	margin-bottom: 30px;
+	@media all and (max-width: 1080px){
+		margin-bottom: 20px;
+	}
 `;
 
 
@@ -152,6 +166,10 @@ const Paragraph = styled.p`
 	margin-bottom: 30px;
 	width: 300px;
 	color: #6B7280;
+	@media all and (max-width: 1080px){
+		width: 100%;
+		margin-bottom: 10px;
+	}
 `;
 
 const FooterContact = styled.div`
@@ -188,6 +206,9 @@ const Phone = styled.a`
 	display: block;
 	font-size: 20px;
 	font-weight: bold;
+	@media all and (max-width: 980px){
+		font-size: 17px;
+    }
 `;
 
 const Mail = styled.a`
@@ -201,6 +222,13 @@ const WidgetsBlock = styled.div`
 	justify-content: space-between;
 	align-items: flex-start;
 	width: 70%;
+	@media all and (max-width: 1080px){
+		width: 100%;
+	}
+	@media all and (max-width: 768px){
+		flex-wrap: wrap;
+	}
+
 `;
 const Widget1 = styled.div`
   
@@ -224,6 +252,13 @@ const Text = styled.li`
 `;
 const Widget4 = styled.div`
 	width: 25%;
+	@media all and (max-width: 768px){
+		width: 50%;
+		margin-top: 20px;
+	}
+	@media all and (max-width: 480px){
+		width: 70%;
+	}
 `;
 
 
@@ -260,10 +295,22 @@ const WidgetFooter = styled.div`
 `;
 
 const SocialMediaIcons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 70%;
+	@media all and (max-width: 1380px){
+		width: 75%;
+	}
+	@media all and (max-width: 1280px){
+		width: 90%;
+	}
+	@media all and (max-width: 1080px){
+		width: 70%;
+	}
+	@media all and (max-width: 640px){
+		width: 80%;
+	}
 `;
 
 const IconBox = styled.div`

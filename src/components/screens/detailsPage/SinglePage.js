@@ -16,7 +16,7 @@ import Review from './Review';
 
 import ReactImageMagnify from 'react-image-magnify';
 
-// import favorite from "../../../assets/images/heart.svg";
+
 import share from "../../../assets/images/share.svg";
 import compaerIcon from "../../../assets/images/campare.svg";
 import card from "../../../assets/images/Card.svg";
@@ -248,6 +248,13 @@ const ProductContainer = styled.div`
 	align-items: center;
 	padding: 10px 0 100px;
 	position: relative;
+	@media all and (max-width: 1280px){
+		padding: 10px 0 0;
+	}
+	@media all and (max-width: 1080px){
+		display: block;
+	}
+
 `;
 
 const ProductGallery = styled.div`
@@ -264,7 +271,7 @@ const ProdectDescount =styled.div`
 	position: absolute;
 	left: 10px;
     top: 125px;
-    z-index: 100;
+    
 `;
 
 const Descount = styled.h3`
@@ -277,7 +284,23 @@ const Descount = styled.h3`
 const ProductImage = styled.div`
 	width: 500px;
 	height: 500px;
-	
+	@media all and (max-width: 1280px){
+		width: 450px;
+	}
+	@media all and (max-width: 1080px){
+		margin: 0 auto;
+	}
+	@media all and (max-width: 768px){
+		height: 450px;
+	}
+	@media all and (max-width: 480px){
+		height: 335px;
+		width: 340px;
+	}
+	@media all and (max-width: 360px){
+		height: 300px;
+		width: 300px;
+	}
 `;
 
 // const Image = styled.img`
@@ -326,6 +349,7 @@ const ProductSku = styled.p`
 	font-size : 14px;
 	color: #3f1a1a91;
 	
+
 `;
 const SerialNumber = styled.span`
 	font-size : 13px;
@@ -363,6 +387,10 @@ const Button = styled.button`
 	border-radius: 10px;
 	margin: 15px 0;
 	cursor: pointer;
+	@media all and (max-width: 1280px){
+		font-size: 15px;
+	}
+
 `;
 const SpecialOfferTimer = styled.div`
 	display: flex;
@@ -380,6 +408,25 @@ const CartContainer = styled.div`
 	justify-content: space-between;
 	width: 70%;
 	margin-top: 20px;
+	@media all and (max-width: 1380px){
+		width: 73%;
+	}
+	@media all and (max-width: 1080px){
+		width: 50%;
+	}
+	@media all and (max-width: 980px){
+		width: 58%;
+	}
+	@media all and (max-width: 768px){
+		width: 70%;
+	}
+	@media all and (max-width: 640px){
+		width: 93%;
+	}
+	@media all and (max-width: 480px){
+		display: block;
+	}
+
 `;
 
 const Quantity = styled.div`
@@ -390,6 +437,9 @@ const Quantity = styled.div`
 	border: 1px solid #000;
     padding: 12px;
     border-radius: 10px;
+	@media all and (max-width: 480px){
+		width: 50%;
+	}
 `;
 
 const MinIconbox = styled.div`
@@ -425,6 +475,16 @@ const CartButton = styled.button`
     background-color: #16A34A;
     border-radius: 10px;
     cursor: pointer;
+	@media all and (max-width: 1280px){
+		font-size: 15px;
+	}
+	@media all and (max-width: 480px){
+		display: block;
+		padding: 15px;
+		margin: 10px 0;
+		width: 50%;
+	}
+	
 `;
 const Icon =styled.img`
 	margin-right: 10px;
@@ -437,6 +497,14 @@ const BuyButton = styled.button`
     background-color: #000;
     border-radius: 10px;
     cursor: pointer;
+	@media all and (max-width: 1280px){
+		font-size: 15px;
+	}
+	@media all and (max-width: 480px){
+		width: 50%;
+		margin-bottom: 20px;
+	}
+	
 `;
 const Semicolon = styled.p`
 	color: #000;
@@ -451,6 +519,12 @@ const SiteCountdown = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	@media all and (max-width: 640px){
+		width: 50%;
+	}
+	@media all and (max-width: 480px){
+		width: 58%;
+	}
 `;
 
 const Day = styled.span`
@@ -512,11 +586,18 @@ const OfferRemainter = styled.div`
 const Span = styled.p`
 	font-size: 13px;
 	color: #000;
+	@media all and (max-width: 640px){
+		display: none;
+	}
 `;
 const ProdectNotices = styled.ul`
 	border: 2px solid #E5E7EB;
 	border-radius: 10px;
 	margin: 30px 0px;
+	@media all and (max-width: 480px){
+		display: none;
+		
+	}
 `;
 
 const NoticeBox = styled.li`
@@ -560,13 +641,23 @@ const Bottom = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 75%;
+	@media all and (max-width: 1080px){
+		width: 50%;
+	}
+	@media all and (max-width: 640px){
+		display: block;
+	}
+	
+
 `;
 
 const BottmBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	
+	@media all and (max-width: 640px){
+		margin-bottom: 10px;
+	}
 `;
 
 const BottmIconBox = styled.div`

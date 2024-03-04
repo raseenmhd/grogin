@@ -19,9 +19,6 @@ const Review = ({ product }) => {
 	};
 //
 
-  	
-
-
   return (
 	<>
 		<SinglePageBottom>
@@ -66,23 +63,53 @@ const DescriptionContainer = styled.div`
 
 const Title = styled.h2`
 	font-size: 16px;
-	padding-bottom: 15px;
-	width: 7.5%;
+	padding-bottom: 17px;
+	width: 10%;
 	display: inline-block;
 	cursor: pointer;
 	opacity: ${({ showComments }) => (!showComments ? '1' : '0.5')} ;
 	border-bottom: ${({ showComments }) => (!showComments ? '3px solid' : '0')};
+	@media all and (max-width: 980px){
+		width: 12%;
+	}
+	@media all and (max-width: 768px){
+		width: 15%;
+	}
+	@media all and (max-width: 640px){
+		width: 20%;
+	}
+	@media all and (max-width: 480px){
+		width: 27%;
+	}
 `;
 
 const Title2 = styled.h2`
 	font-size: 16px;
-	padding-bottom: 15px;
-	width: 7.5%;
+	width: 6%;
+	padding-bottom: 17px;
 	display: inline-block;
-	padding-left: 15px;
 	cursor: pointer;
 	opacity: ${({ showComments }) => (showComments ? '1' : '0.5')} ;
 	border-bottom: ${({ showComments }) => (showComments ? '3px solid' : '0')};
+	@media all and (max-width: 1280px){
+		margin-left: 5px;
+	}
+	@media all and (max-width: 1080px){
+		margin-left: 10px;
+	}
+	@media all and (max-width: 980px){
+		margin-left: 20px;
+		width: 8%;
+	}
+	@media all and (max-width: 768px){
+		width: 10%;
+	}
+	@media all and (max-width: 640px){
+		width: 13%;
+	}
+	@media all and (max-width: 480px){
+		width: 18%;
+	}
 `;
 
 const HorizontalLine = styled.hr`
@@ -92,6 +119,9 @@ const HorizontalLine = styled.hr`
 const ProductDescription = styled.div`
   	display: ${({ showComments }) => (showComments ? 'none' : 'block')};
 	height: 165px;
+	@media all and (max-width: 980px){
+		height: unset;
+	}
 `;
 
 const DescriptionContent = styled.p`
@@ -120,10 +150,15 @@ const ReviewContainer = styled.div`
 	position: relative;
 	padding: 30px 0;
 	border-bottom: 1px solid #E5E7EB;
+	@media all and (max-width: 640px){
+		justify-content: space-between;
+	}
+
 `;
 
 const ReviewContent = styled.p`
 	width: 80%;
+	font-size: 14px;
 `;
 
 const IsLikedButton = styled.button`

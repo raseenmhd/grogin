@@ -13,7 +13,7 @@ function FooterTop() {
 				<EntryNote>Register now to get latest updates on promotions & coupons.Don’t worry, we not spam!
 				</EntryNote>
 			</LeftSection>
-				<RightSection>
+			<RightSection>
 				<SubscribeEmail>
 					<Form>
 						<EmailLogo htmlFor="email" >
@@ -39,15 +39,32 @@ const FooterHead = styled.div`
 	justify-content: space-between;
 	padding: 50px 0;
 	border-bottom: 1px solid #E5E7EB;
+	@media all and (max-width: 768px){
+		padding: 30px 0;
+	}
+	@media all and (max-width: 640px){
+		padding: 20px 0;
+	}
 `;
 
 const LeftSection = styled.div`
 	width: 30%;
-
+	@media all and (max-width: 768px){
+        width: 40%;
+    }
+	@media all and (max-width: 640px){
+		display: none;
+	}
 `;
 
 const RightSection = styled.div`
 	width : 35%;
+	@media all and (max-width: 768px){
+        width: 55%;
+    }
+	@media all and (max-width: 640px){
+		width: 100%;
+	}
 `;
 
 const EntryTitle = styled.h3`
@@ -88,6 +105,9 @@ const EmailIcon = styled.img`
 const EmailInput = styled.input`
 	width: 75%;
 	font-size: 15px;
+	@media all and (max-width: 640px){
+		font-size: 12px;
+	}
 `;
 
 const SubmitButton = styled.input`
@@ -103,6 +123,9 @@ const SubmitButton = styled.input`
     letter-spacing: 0px;
     border-radius: 0 10px 10px 0;
 	cursor: pointer;
+	@media all and (max-width: 640px){
+		font-size: 13px;
+	}
 `;
 
 const InformationText = styled.p`

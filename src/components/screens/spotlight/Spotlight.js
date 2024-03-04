@@ -10,6 +10,7 @@ import banner from "../../../assets/images/banner.png";
 import arrow from "../../../assets/images/Vector.svg";
 import listIcon1 from "../../../assets/images/Icon1.svg";
 import listIcon2 from "../../../assets/images/Icon 2.svg";
+import filter from "../../../assets/images/filter.png";
 
 
 function Spotlight({data}) {
@@ -49,6 +50,9 @@ function Spotlight({data}) {
 					<ProdectBeforShop>
 						<ProdectList>
 							<ListProdectCount>
+								<FilterBox>
+									<FilterIcon src={filter} />
+								</FilterBox>
 								<CountText>
 									Showing 1–20 of 159 results
 								</CountText>
@@ -102,6 +106,11 @@ function Spotlight({data}) {
 const SpotlightContainer = styled.div`
     width: 78%;
 	padding: 0 15px;
+	@media all and (max-width: 1080px){
+		width: 100%;
+		padding: 0;
+	}
+	
 `;
 const PageHeader = styled.div`
 	
@@ -109,15 +118,24 @@ const PageHeader = styled.div`
 
 const ShopPageBanner = styled.div`
 	position: relative;
+	
 `;
 
 const EntryInner = styled.div`
-	max-width: 45%;
+	width: 45%;
 	position:  absolute;
 	z-index: 1;
 	top: 15px;
 	left: 30px;
-	
+	@media all and (max-width: 768px){
+        width: 65%;
+    }
+	@media all and (max-width: 640px){
+		width: 75%;
+	}
+	@media all and (max-width: 480px){
+		top: 30px;
+	}
 `;
 const EntryHeader = styled.div`
 	background-color: #FFEDD5;
@@ -128,18 +146,36 @@ const EntryHeader = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 20px;
+	@media all and (max-width: 1280px){
+		width: 30%;
+		height: 25px;
+		margin-bottom: 0;
+	}
+	@media all and (max-width: 480px){
+		width: 40%;
+	}
+	
 `;
 
 const Subtitle = styled.h4`
 	font-size : 12px;
 	font-weight: 600;
 	color: #7C2D12;
+	@media all and (max-width: 1280px){
+		font-size : 11px;
+	}
 	
 `;
 const EntryTitle = styled.h1`
 	font-size : 30px;
 	font-weight: bold;
 	letter-spacing: -0.9px;
+	@media all and (max-width: 1280px){
+		font-size: 27px;
+	}
+	@media all and (max-width: 360px){
+		font-size: 25px;
+	}
 `;
 
 const Paragraph = styled.p`
@@ -147,6 +183,13 @@ const Paragraph = styled.p`
     opacity: 0.7;
     line-height: 1.4em;
 	margin: 10px 0;
+	@media all and (max-width: 1280px){
+		
+		font-size: 13px;
+	}
+	@media all and (max-width: 480px){
+		width: 100%;
+	}
 `;
 
 const ShopNowButton = styled.button`
@@ -156,12 +199,21 @@ const ShopNowButton = styled.button`
     border-radius: 50px;
 	background-color: #fff;
 	cursor: pointer;
+	@media all and (max-width: 1280px){
+		height: 40px;
+		width: 30%;
+	}
+	@media all and (max-width: 480px){
+		width: 40%;
+	}
 `;
 
 const ButtonTitle = styled.span`
 	font-size: 14px;
 	font-weight: bold;
-	
+	@media all and (max-width: 1280px){
+		font-size: 13px;
+	}
 `;
 
 const ButtonIcon = styled.span`
@@ -173,16 +225,25 @@ const ButtonIcon = styled.span`
 const ArrowIcon = styled.img`
 	display: block;
 	widows: 100%;
+	
 `;
 
 const EntryMedia = styled.div`
 	width: 100%;
+	
 `;
 
 const Image = styled.img`
 	width: 100%;
 	display : block;
+	object-fit: cover;
 	border-radius: 10px;
+	@media all and (max-width: 1280px){
+		height: 230px;
+	}
+	@media all and (max-width: 480px){
+		height: 260px;
+	}
 `;
 
 const ProdectBeforShop = styled.div`
@@ -198,13 +259,38 @@ const ProdectList = styled.div`
 	justify-content: space-between;
 `;
 
+const FilterBox = styled.div`
+	width: 30px;
+	margin-right: 20px;
+	display: none;
+	border: 1px solid #000;
+	padding: 5px;
+	border-radius: 5px;
+	@media all and (max-width: 1080px){
+		display: block;
+	}
+`;
+
+const FilterIcon = styled.img`
+	display: block;
+	width: 100%;
+`;
 const ListProdectCount = styled.div`
 	width: 50%;
+	display: flex;
+	align-items: center;
+	@media all and (max-width: 640px){
+		width: 15%;
+	}
 `;
 
 const CountText = styled.p`
 	font-size: 13px;
 	opacity: 0.8;
+	@media all and (max-width: 640px){
+		display: none;
+	}
+
 `;
 
 const ProdectSortSection = styled.div`
@@ -212,6 +298,9 @@ const ProdectSortSection = styled.div`
   	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	@media all and (max-width: 640px){
+		width: 100%;
+	}
 `;
 
 const SortByPrice = styled.div`
@@ -219,6 +308,7 @@ const SortByPrice = styled.div`
     display: flex;
 	align-items: center;
 	justify-content: space-between;
+	
 `;
 
 const SortSubtitle = styled.span`
@@ -248,6 +338,7 @@ const SortItem = styled.option`
 const DownArrow = styled.img`
 	display: block;
 	width: 10px;
+	
 `;
 const SortByItems = styled.div`
 	width: 40%;

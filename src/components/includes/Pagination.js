@@ -19,6 +19,10 @@ function Pagination() {
 }
 const PaginationWrapper = styled.div`
 	padding: 20px 50px 10px;
+	@media all and (max-width: 640px){
+		padding: 15px 15px 0;
+	}
+
 `;
 
 const PaginationContainer = styled.div`

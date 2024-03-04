@@ -177,6 +177,10 @@ const [selectedCategories, setSelectedCategories] = useState([]);
 
 const MainContainer = styled.div`
 	width: 20%;
+	@media all and (max-width: 1080px){
+		display: none;
+	}
+
 `;
 
 const FilterContainer = styled.div`

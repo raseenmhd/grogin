@@ -72,6 +72,7 @@ const ProductContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	z-index: 0;
+	
 `;
 
 const ProductTable = styled.div`
@@ -80,7 +81,12 @@ const ProductTable = styled.div`
 	border-bottom: 1px solid #E5E7EB;
 	padding: 15px;
 	position: relative;
-	
+	@media all and (max-width: 980px){
+		width: 33.3%;
+	}
+	@media all and (max-width: 480px){
+        width: 50%;
+    }
 `;
 const ProductImage = styled.div`
 	width: 100%;
@@ -152,23 +158,27 @@ const Favorite =styled.div`
 	width: 80%;
 	position: absolute;
 	top: 15px;
-	z-index: 100;
+	z-index: 10;
 `;
 const Offertag = styled.div`
 	background-color: red;
 	padding: 5px 10px;
 	border-radius: 25px;
+	@media all and (max-width: 1280px){
+		padding: 2px 6px;
+	}
+
 `;
 const Offer = styled.h5`
 	font-size: 13px;
 	font-weight: bold;
 	color: #fff;
+	@media all and (max-width: 1280px){
+		font-size: 12px;
+	}
 `;
 const FavoriteIcon = styled.div`
 	width: 20px;
 `;
-// const HeartIcon = styled.img`
-// 	display: block;
-// 	width: 100%;
-// `;
+
 export default ProductList;
