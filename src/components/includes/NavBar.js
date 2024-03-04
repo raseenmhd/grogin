@@ -66,7 +66,6 @@ function NavBar() {
 const Nav = styled.nav`
 	padding: 0 50px;
 	border-bottom: 1px solid #E5E7EB;
-	max-width: 1440px;
 `;
 
 const Container = styled.div`

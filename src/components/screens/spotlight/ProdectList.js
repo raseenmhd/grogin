@@ -1,61 +1,68 @@
-import React from 'react';
+import React, {useState}from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-import stoke from "../../assets/images/cart.svg"
-import Favoriteicon from "../../assets/images/heart.svg"
+import stoke from "../../../assets/images/cart.svg"
+// import Favoriteicon from "../../../assets/images/heart.svg"
 
 
-import star from "../../assets/images/star.svg"
-import start2 from "../../assets/images/start2.svg"
+import star from "../../../assets/images/star.svg"
+import start2 from "../../../assets/images/start2.svg"
 
 
 function ProductList({data}) {
 
 	const limiteData = data.slice(0,15);
-	
-  return (
-	<ProductContainer>
-		{limiteData.map((product) => {
-			return(	
-				<ProductTable key={product.id} >
-					 <NavLink to={`/product/${product.id}`}>
-						<ProductImage>
-							<Image src={product.cover_image} />
-						</ProductImage>
-						<ProductName>{product.title}</ProductName>
-						<ProductRating>
-							<Star src={star} />
-							<Star src={star} />
-							<Star src={star} />
-							<Star src={star} />
-							<Star src={start2} />
-						</ProductRating>
-						<Pricing>
-							<DiscountPrice>${product.offer_price}</DiscountPrice>
-							<OriginalPrice>${product.orginal_price}</OriginalPrice>
-						</Pricing>
-						<StockIndication>
-							<StockIconBox>
-								<StockIcon src={stoke} />
-								
-							</StockIconBox>
-							<Label>in stock </Label>
-						</StockIndication>
-						<Favorite>
-							<Offertag>
-								<Offer>{product.descount}</Offer>
-							</Offertag>
-							<FavoriteIcon>
-                                <HeartIcon scr={Favoriteicon}/>
-                            </FavoriteIcon>
-						</Favorite>
-					</NavLink>
-				</ProductTable>	
-			)
-		})}
-	</ProductContainer>
+//
+
+const [liked, setLiked] = useState(false);
+
+const toggleLike = () => {
+	setLiked(!liked);
+};
+  	return (
+		<ProductContainer>
+			{limiteData.map((product) => {
+				return(	
+					<ProductTable key={product.id} >
+						<NavLink to={`/product/${product.id}`}>
+							<ProductImage>
+								<Image src={product.cover_image} />
+							</ProductImage>
+							<ProductName>{product.title}</ProductName>
+							<ProductRating>
+								<Star src={star} />
+								<Star src={star} />
+								<Star src={star} />
+								<Star src={star} />
+								<Star src={start2} />
+							</ProductRating>
+							<Pricing>
+								<DiscountPrice>${product.offer_price}</DiscountPrice>
+								<OriginalPrice>${product.orginal_price}</OriginalPrice>
+							</Pricing>
+							<StockIndication>
+								<StockIconBox>
+									<StockIcon src={stoke} />
+								</StockIconBox>
+								<Label>in stock </Label>
+							</StockIndication>
+							<Favorite>
+								<Offertag>
+									<Offer>{product.descount}</Offer>
+								</Offertag>
+								<FavoriteIcon onClick={toggleLike}>
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={liked ? "red" : "#626262"} />
+									</svg>
+								</FavoriteIcon>
+							</Favorite>
+						</NavLink>
+					</ProductTable>	
+				)
+			})}
+		</ProductContainer>
   );
 }
 const ProductContainer = styled.div`
@@ -64,6 +71,7 @@ const ProductContainer = styled.div`
 	border-radius: 10px;
 	display: flex;
 	flex-wrap: wrap;
+	z-index: 0;
 `;
 
 const ProductTable = styled.div`
@@ -72,6 +80,7 @@ const ProductTable = styled.div`
 	border-bottom: 1px solid #E5E7EB;
 	padding: 15px;
 	position: relative;
+	
 `;
 const ProductImage = styled.div`
 	width: 100%;
@@ -143,6 +152,7 @@ const Favorite =styled.div`
 	width: 80%;
 	position: absolute;
 	top: 15px;
+	z-index: 100;
 `;
 const Offertag = styled.div`
 	background-color: red;
@@ -157,8 +167,8 @@ const Offer = styled.h5`
 const FavoriteIcon = styled.div`
 	width: 20px;
 `;
-const HeartIcon= styled.img`
-	display: block;
-	width: 100%;
-`;
+// const HeartIcon = styled.img`
+// 	display: block;
+// 	width: 100%;
+// `;
 export default ProductList;

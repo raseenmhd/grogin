@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-
+import { Helmet } from 'react-helmet';
 
 import HeaderPage from './Header';
 import NavBar from "../includes/NavBar";
@@ -15,6 +15,9 @@ import arrow from "../../assets/images/Vector.svg"
 function LoginPage() {
   return (
 	<>
+		<Helmet>
+			<title>Grogin | Register</title>
+		</Helmet>
 		<MainHeader/>
 		<HeaderPage/>
 		<NavBar/>
@@ -45,7 +48,7 @@ function LoginPage() {
 			</Paragraph>
 			<LoginForm>
 				<UserName>
-					<UserNameLabel for="user_name">Username or email address *</UserNameLabel>
+					<UserNameLabel for="user_name">Username *</UserNameLabel>
 					<UserNameInput type="text" id="user_name" />
 				</UserName>
                 <EmailName>

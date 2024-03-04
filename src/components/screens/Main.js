@@ -1,13 +1,16 @@
 import React,{useState}from 'react'
+import { Helmet } from 'react-helmet';
+
 
 import MainHeader from "../includes/MainHeader";
 import HeaderPage from './Header';
 import NavBar from "../includes/NavBar";
-import Filter from './Filter';
+import Filter from '../screens/spotlight/Filter';
 import Pagination from "../includes/Pagination"
 import styled from 'styled-components';
-import Spotlight from '../screens/Spotlight';
+import Spotlight from '../screens/spotlight/Spotlight';
 import Footer from '../screens/Footer';
+
 
 import { Products } from '../data/data';
 
@@ -24,7 +27,10 @@ function Main() {
         }
     };
   return (
-	<>
+	<>	
+		<Helmet>
+			<title>Grogin | shoping</title>
+		</Helmet>
 		<MainHeader/>
 			<HeaderPage />
 			<NavBar/>
@@ -41,6 +47,8 @@ function Main() {
 const SpotlightContainer = styled.section`
 	padding: 20px 50px 50px;
 	display : flex;
+	margin: 0 auto;
+	max-width: 1440px;
 	justify-content: space-between;
 `;
 export default Main

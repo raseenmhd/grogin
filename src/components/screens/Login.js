@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 
 import HeaderPage from './Header'
 import NavBar from "../includes/NavBar";
@@ -14,6 +15,9 @@ import arrow from "../../assets/images/Vector.svg"
 function Login() {
   return (
 	<>
+		<Helmet>
+			<title>Grogin | Login</title>
+		</Helmet>
 		<MainHeader/>
 		<HeaderPage/>
 		<NavBar/>

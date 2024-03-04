@@ -1,36 +1,43 @@
 // SinglePage.js
 import React, {useState ,useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet';
 
 import styled from 'styled-components';
-import MainHeader from "../includes/MainHeader";
-import HeaderPage from './Header';
-import NavBar from "../includes/NavBar";
-import Pagination from '../includes/Pagination';
-import Footer from './Footer';
+import MainHeader from "../../includes/MainHeader";
+import HeaderPage from '../Header';
+import NavBar from "../../includes/NavBar";
+import Pagination from '../../includes/Pagination';
+import Footer from '../Footer';
 
 
-import { Products } from "../data/data"; 
+import { Products } from "../../data/data"; 
+import Review from './Review';
 
 import ReactImageMagnify from 'react-image-magnify';
 
-import favorite from "../../assets/images/heart.svg";
-import share from "../../assets/images/share.svg";
-import compaerIcon from "../../assets/images/campare.svg";
-import card from "../../assets/images/Card.svg";
-import warranty from "../../assets/images/warranty.svg";
-import star from "../../assets/images/star.svg"
-import start2 from "../../assets/images/start2.svg"
-import bag from "../../assets/images/bang.svg"
-import maxIcon from "../../assets/images/maxicon.svg"
-import minIcon from "../../assets/images/minicon.svg"
+// import favorite from "../../../assets/images/heart.svg";
+import share from "../../../assets/images/share.svg";
+import compaerIcon from "../../../assets/images/campare.svg";
+import card from "../../../assets/images/Card.svg";
+import warranty from "../../../assets/images/warranty.svg";
+import star from "../../../assets/images/star.svg"
+import start2 from "../../../assets/images/start2.svg"
+import bag from "../../../assets/images/bang.svg"
+import maxIcon from "../../../assets/images/maxicon.svg"
+import minIcon from "../../../assets/images/minicon.svg"
+
 
 
 
 
 function SinglePage() {
+	
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
+//
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -51,6 +58,7 @@ function SinglePage() {
         return () => clearInterval(interval);
     }, []);
 //
+
 	const [value, setValue] = useState(1);
 
 	const handleIncrement = () => {
@@ -64,6 +72,13 @@ function SinglePage() {
 	};
 
 //
+	const [liked, setLiked] = useState(false);
+
+	const toggleLike = () => {
+		setLiked(!liked);
+	};
+
+//
 	const { productId } = useParams();
 
     const product = Products.find((product) => product.id === productId);
@@ -73,6 +88,9 @@ function SinglePage() {
 
     return (
         <>
+			<Helmet>
+				<title>{product.title}</title>
+      		</Helmet>
             <MainHeader />
             <HeaderPage />
             <NavBar />
@@ -95,6 +113,9 @@ function SinglePage() {
 							}} />
                         </ProductImage>
                     </ProductGallery>
+					<ProdectDescount>
+						<Descount>{product.descount}</Descount>
+					</ProdectDescount>
                     <ProductDetails>
                         <ProductName>{product.title}</ProductName>
                         <ProductMeta>
@@ -188,10 +209,12 @@ function SinglePage() {
                         </ProdectNotices>
                         <Bottom>
                             <BottmBox>
-                                <BottmIconBox>
-                                    <BottmIcon src={favorite} />
+                                <BottmIconBox onClick={toggleLike}>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={liked ? "red" : "#626262"} />
+									</svg>
                                 </BottmIconBox>
-                                <Title>Add to wishlist</Title>
+                                <Title>{liked ? "Remove wish" : "Add to wishlist"}</Title>
                             </BottmBox>
                             <BottmBox>
                                 <BottmIconBox>
@@ -208,6 +231,7 @@ function SinglePage() {
                         </Bottom>
                     </ProductDetails>
                 </ProductContainer>
+				<Review product={product}/>
             </Wrapper>
             <Footer />
         </>
@@ -223,11 +247,31 @@ const ProductContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 0 100px;
+	position: relative;
 `;
 
 const ProductGallery = styled.div`
   	flex: 1;
 	z-index: 100;
+`;
+
+const ProdectDescount =styled.div`
+	background-color: red;
+	padding: 5px;
+	width: 45px;
+	border-radius: 25px;
+	text-align: center;
+	position: absolute;
+	left: 10px;
+    top: 125px;
+    z-index: 100;
+`;
+
+const Descount = styled.h3`
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+
 `;
 
 const ProductImage = styled.div`
@@ -352,7 +396,7 @@ const MinIconbox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+	cursor: pointer;
 `;
 const MinIcon = styled.img`
 	width: 100%;
@@ -362,6 +406,7 @@ const MaxIconbox = styled.div`
     display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 `;
 const MaxIcon = styled.img`
 	width: 100%;
@@ -543,6 +588,7 @@ const BottmIcon = styled.img`
 const Title = styled.p`
 	font-size: 14px;
 	margin-left: 10px;
+	width: 140px;
 `;
 
 export default SinglePage;

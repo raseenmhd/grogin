@@ -6,8 +6,8 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
 
-import plusIcon from "../../assets/images/plus.svg"
-import { Productcategory } from '../data/data';
+import plusIcon from "../../../assets/images/plus.svg";
+import { Productcategory } from '../../data/data';
 
 
 function valuetext(value){

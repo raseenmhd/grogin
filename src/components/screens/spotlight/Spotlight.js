@@ -5,11 +5,11 @@ import styled from 'styled-components'
 import ProductListpage from './ProdectList';
 
 
-import shoparrow from "../../assets/images/shopicon.svg";
-import banner from "../../assets/images/banner.png";
-import arrow from "../../assets/images/Vector.svg";
-import listIcon1 from "../../assets/images/Icon1.svg";
-import listIcon2 from "../../assets/images/Icon 2.svg";
+import shoparrow from "../../../assets/images/shopicon.svg";
+import banner from "../../../assets/images/banner.png";
+import arrow from "../../../assets/images/Vector.svg";
+import listIcon1 from "../../../assets/images/Icon1.svg";
+import listIcon2 from "../../../assets/images/Icon 2.svg";
 
 
 function Spotlight({data}) {
@@ -150,16 +150,16 @@ const Paragraph = styled.p`
 `;
 
 const ShopNowButton = styled.button`
-	width: 27%;
+	width: 28%;
     border: 1px solid #E5E7EB;
-    height: 35px;
+    height: 40px;
     border-radius: 50px;
 	background-color: #fff;
 	cursor: pointer;
 `;
 
 const ButtonTitle = styled.span`
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: bold;
 	
 `;

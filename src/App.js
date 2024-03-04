@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './components/screens/Login';
 import Signup from './components/screens/Signup';
 import Main from './components/screens/Main';
-import SinglePage from './components/screens/SinglePage';
+import SinglePage from './components/screens/detailsPage/SinglePage';
 
 import {Products} from './components/data/data';
 

@@ -18,7 +18,6 @@ function Header() {
   return (
 	<>
 		<HeaderContainer>
-			
 		  <HeaderTop>
 			<NavLeft>
 			  <Items>
