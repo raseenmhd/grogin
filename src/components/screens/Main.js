@@ -2,14 +2,14 @@ import React,{useState}from 'react'
 import { Helmet } from 'react-helmet';
 
 
-import MainHeader from "../includes/MainHeader";
-import HeaderPage from './Header';
-import NavBar from "../includes/NavBar";
+import MainHeader from "../includes/Header/Header-inner/MainHeader";
+import HeaderPage from '../includes/Header/Header';
+import NavBar from "../includes/Header/Header-inner/NavBar";
 import Filter from '../screens/spotlight/Filter';
 import Pagination from "../includes/Pagination"
 import styled from 'styled-components';
 import Spotlight from '../screens/spotlight/Spotlight';
-import Footer from '../screens/Footer';
+import Footer from './Footer/Footer';
 
 
 import { Products } from '../data/data';
@@ -17,11 +17,18 @@ import RepHeader from '../includes/ResponsiveHeader/RepHeader';
 
 	
 function Main() {
+
+	const [isFilteropen, setFilteropen] = useState(false);
+
+    const toggleFilter = () => {
+        setFilteropen(!isFilteropen);
+    }
+//
 	const [data, setData] = useState(Products);
 
     const filterResult = (selectedCategories) => {
         if (selectedCategories.length === 0) {
-            setData(Products); // If no category is selected, show all products
+            setData(Products); 
         } else {
             const filteredData = Products.filter(product => selectedCategories.includes(product.category));
             setData(filteredData);
@@ -38,8 +45,8 @@ function Main() {
 			<NavBar/>
 			<Pagination />
 		<SpotlightContainer>
-			<Filter filterResult={filterResult} /> 
-			<Spotlight data={data}/>
+			<Filter filterResult={filterResult} isFilteropen={isFilteropen} toggleFilter={toggleFilter}/> 
+			<Spotlight data={data} toggleFilter={toggleFilter}/>
 		</SpotlightContainer>
 		<Footer/>
 				

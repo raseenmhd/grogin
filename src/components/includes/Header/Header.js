@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 
 
-import arrow from "../../assets/images/Vector.svg";
-import search from "./../../assets/images/search.svg";
-import heart from "../../assets/images/heart.svg";
-import profile from "../../assets/images/profile.svg";
-import cart from "../../assets/images/cart.svg";
-import location from "../../assets/images/location.png";
-import logo from "../../assets/images/logo.png";
+import arrow from "./../../../assets/images/Vector.svg";
+import search from "./../../../assets/images/search.svg";
+import heart from "./../../../assets/images/heart.svg";
+import profile from "../../../assets/images/profile.svg";
+import cart from "../../../assets/images/cart.svg";
+import location from "./../../../assets/images/location.png";
+import logo from "../../../assets/images/logo.png";
 
 
 

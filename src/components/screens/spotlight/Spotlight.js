@@ -13,7 +13,9 @@ import listIcon2 from "../../../assets/images/Icon 2.svg";
 import filter from "../../../assets/images/filter.png";
 
 
-function Spotlight({data}) {
+function Spotlight({data , toggleFilter}) {
+
+
 	return (
 		<>
 			<SpotlightContainer>
@@ -50,7 +52,7 @@ function Spotlight({data}) {
 					<ProdectBeforShop>
 						<ProdectList>
 							<ListProdectCount>
-								<FilterBox>
+								<FilterBox onClick={toggleFilter}>
 									<FilterIcon src={filter} />
 								</FilterBox>
 								<CountText>
@@ -252,6 +254,9 @@ const ProdectBeforShop = styled.div`
 	width: 100%;
 	margin: 10px 0;
 	border-radius: 10px;
+	@media all and (max-width: 360px){
+		padding: 7px;
+	}
 `;
 const ProdectList = styled.div`
 	display: flex;
@@ -281,6 +286,9 @@ const ListProdectCount = styled.div`
 	align-items: center;
 	@media all and (max-width: 640px){
 		width: 15%;
+	}
+	@media all and (max-width: 360px){
+		width: 20%;
 	}
 `;
 
@@ -358,6 +366,9 @@ const ProdectViweButton = styled.div`
 const GridViweList = styled.div`
     width: 20px;
 	cursor: pointer;
+	@media all and (max-width: 360px){
+		display: none;
+	}
 `;
 
 const ListIcon = styled.img`

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-import email from "../../../assets/images/email.svg"
+import email from "../../../../assets/images/email.svg"
 
 function FooterTop() {
   return (

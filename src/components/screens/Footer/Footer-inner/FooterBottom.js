@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-import { PymentCards,CopyRightMenu } from "../../data/data"
+import { PymentCards,CopyRightMenu } from "../../../data/data"
 
 function FooterBottom() {
   return (

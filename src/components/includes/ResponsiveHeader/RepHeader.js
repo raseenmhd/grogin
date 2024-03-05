@@ -96,7 +96,7 @@ function RepHeader() {
 }
 
 const Header = styled.header`
-    display: flex;
+    
     align-items: center;
     justify-content: space-between;
     padding: 20px 50px;
@@ -104,8 +104,10 @@ const Header = styled.header`
     position: sticky;
     top: 0;
     background-color: #fff;
-    z-index: 999;
+    z-index: 30;
+    display: none;
     @media all and (max-width: 1280px){
+        display: flex;
         padding: 10px 50px;
     }
     @media all and (max-width: 640px){
@@ -158,7 +160,7 @@ const Nav = styled.nav`
     height: 100vh;
     background-color: #fff;
     transition: left 0.3s ease;
-    z-index: 999;
+    z-index: 30;
     overflow-y: auto;
 `;
 

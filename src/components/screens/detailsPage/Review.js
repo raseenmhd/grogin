@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 
 import profile from "../../../assets/images/profile.png"
-import star from "../../../assets/images/star.svg"
 
 
 const Review = ({ product }) => {
@@ -16,6 +15,12 @@ const Review = ({ product }) => {
 
 	const toggleComments = () => {
 		setShowComments(true);
+	};
+//
+	const [liked, setLiked] = useState(false);
+
+	const toggleLike = () => {
+		setLiked(!liked);
 	};
 //
 
@@ -41,8 +46,11 @@ const Review = ({ product }) => {
 					<ReviewContent>
 					This is the review content. It can contain any information about the product review, such as the user's opinion, rating, and additional details.
 					</ReviewContent>
-					<IsLikedButton >
-							<LikeIcon src={star} />
+					<IsLikedButton onClick={toggleLike} >
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={liked ? "red" : "#626262"} />
+						</svg>
+						<LikeCount>{liked ? "1" : ""}</LikeCount>
 					</IsLikedButton>
 				</ReviewContainer>
 				)}
@@ -153,12 +161,19 @@ const ReviewContainer = styled.div`
 	@media all and (max-width: 640px){
 		justify-content: space-between;
 	}
+	@media all and (max-width: 480px){
+		display: block;
+	}
 
 `;
 
 const ReviewContent = styled.p`
 	width: 80%;
 	font-size: 14px;
+	@media all and (max-width: 480px){
+		width: 100%;
+		margin-top: 10px;
+	}
 `;
 
 const IsLikedButton = styled.button`
@@ -168,9 +183,9 @@ const IsLikedButton = styled.button`
 	width: 20px;
 `;
 
-const LikeIcon = styled.img`
+const LikeCount = styled.p`
+	font-size: 12px;
 	display: block;
-	width: 100%;
 `;
 
 export default Review;

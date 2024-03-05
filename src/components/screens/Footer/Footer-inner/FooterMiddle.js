@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FooterWidget1 ,FooterWidget2,FooterWidget3} from "../../data/data";
-import email from "../../../assets/images/email.svg";
-import phone from "../../../assets/images/phone.svg";
-import facebook from "../../../assets/images/facebook.svg";
-import linkdin from "../../../assets/images/linkdin.svg";
-import insta from "../../../assets/images/insta.svg";
-import twiter from "../../../assets/images/twiter.svg";
-import appstore from "../../../assets/images/appstore.png"
-import playstore from "../../../assets/images/playstore.png"
+
+import { FooterWidget1 ,FooterWidget2,FooterWidget3} from "../../../data/data";
+import email from "../../../../assets/images/email.svg";
+import phone from "../../../../assets/images/phone.svg";
+import facebook from "../../../../assets/images/facebook.svg";
+import linkdin from "../../../../assets/images/linkdin.svg";
+import insta from "../../../../assets/images/insta.svg";
+import twiter from "../../../../assets/images/twiter.svg";
+import appstore from "../../../../assets/images/appstore.png"
+import playstore from "../../../../assets/images/playstore.png"
+
 
 function FooterMiddle() {
   return (

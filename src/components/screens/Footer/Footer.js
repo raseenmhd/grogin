@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import FooterTop from "../../components/screens/Footer-inner/FooterTop";
-import FooterMiddle from '../../components/screens/Footer-inner/FooterMiddle';
-import FooterBottom from '../../components/screens/Footer-inner/FooterBottom';
+import FooterTop from "./Footer-inner/FooterTop";
+import FooterMiddle from './Footer-inner/FooterMiddle';
+import FooterBottom from './Footer-inner/FooterBottom';
 
 function Footer() {
   return (

@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import styled from 'styled-components';
-import MainHeader from "../../includes/MainHeader";
-import HeaderPage from '../Header';
-import NavBar from "../../includes/NavBar";
+import MainHeader from "../../includes/Header/Header-inner/MainHeader";
+import Header from '../../includes/Header/Header';
+import NavBar from "../../includes/Header/Header-inner/NavBar";
 import Pagination from '../../includes/Pagination';
-import Footer from '../Footer';
+import Footer from '../Footer/Footer';
 
 
 import { Products } from "../../data/data"; 
@@ -26,6 +26,7 @@ import start2 from "../../../assets/images/start2.svg"
 import bag from "../../../assets/images/bang.svg"
 import maxIcon from "../../../assets/images/maxicon.svg"
 import minIcon from "../../../assets/images/minicon.svg"
+import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 
 
 
@@ -92,7 +93,8 @@ function SinglePage() {
 				<title>{product.title}</title>
       		</Helmet>
             <MainHeader />
-            <HeaderPage />
+            <Header />
+			<RepHeader />
             <NavBar />
             <Pagination />
             <Wrapper>
@@ -259,7 +261,7 @@ const ProductContainer = styled.div`
 
 const ProductGallery = styled.div`
   	flex: 1;
-	z-index: 100;
+	z-index: 10;
 `;
 
 const ProdectDescount =styled.div`
@@ -271,7 +273,25 @@ const ProdectDescount =styled.div`
 	position: absolute;
 	left: 10px;
     top: 125px;
-    
+	z-index: 11;
+	@media all and (max-width: 1080px){
+		left: 150px;
+		top: 50px;
+	}
+
+	@media all and (max-width: 980px){
+		left: 75px;
+    	top: 75px;
+	}
+	@media all and (max-width: 640px){
+		left: 40px;
+	}
+	@media all and (max-width: 480px){
+		left : 20px;
+		top:50px;
+	}
+
+
 `;
 
 const Descount = styled.h3`
@@ -440,6 +460,9 @@ const Quantity = styled.div`
 	@media all and (max-width: 480px){
 		width: 50%;
 	}
+	@media all and (max-width: 360px){
+		width: 60%;
+	}
 `;
 
 const MinIconbox = styled.div`
@@ -484,6 +507,9 @@ const CartButton = styled.button`
 		margin: 10px 0;
 		width: 50%;
 	}
+	@media all and (max-width: 360px){
+		width: 60%;
+	}
 	
 `;
 const Icon =styled.img`
@@ -504,6 +530,9 @@ const BuyButton = styled.button`
 		width: 50%;
 		margin-bottom: 20px;
 	}
+	@media all and (max-width: 360px){
+		width: 60%;
+	}
 	
 `;
 const Semicolon = styled.p`
@@ -512,6 +541,9 @@ const Semicolon = styled.p`
 const Label = styled.span`
 	font-size: 15px;
 	font-weight: bold;
+	@media all and (max-width: 360px){
+		font-size: 11px;
+	}
 `;
 
 const SiteCountdown = styled.div`
@@ -525,6 +557,10 @@ const SiteCountdown = styled.div`
 	@media all and (max-width: 480px){
 		width: 58%;
 	}
+	@media all and (max-width: 360px){
+		width: 100%;
+	}
+	
 `;
 
 const Day = styled.span`

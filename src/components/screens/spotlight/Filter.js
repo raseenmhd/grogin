@@ -8,14 +8,14 @@ import Slider from '@mui/material/Slider';
 
 import plusIcon from "../../../assets/images/plus.svg";
 import { Productcategory } from '../../data/data';
-
+import closeIcon from "../../../assets/images/close.svg";
 
 function valuetext(value){
 	return `${value}°C`;
 }
 
 
-function Filter({filterResult}) {
+function Filter({filterResult , isFilteropen , toggleFilter}) {
 	
 	const [value, setValue] = useState([30]);
 
@@ -43,12 +43,15 @@ const [selectedCategories, setSelectedCategories] = useState([]);
 	};
 
   return (
-	<MainContainer>
+	<MainContainer isOpen={isFilteropen}>
 	  	<FilterContainer>
 			<FilterSliderHeader>
 		  		<WidgetTitle>
 					Widget price filter
 				</WidgetTitle>
+				<Close onClick={toggleFilter}>
+					<CloseIcon src={closeIcon} />
+				</Close>
 				<PriceSlider>
 					<MinPrice>
 						<PriceTitle for="minprice">
@@ -177,8 +180,30 @@ const [selectedCategories, setSelectedCategories] = useState([]);
 
 const MainContainer = styled.div`
 	width: 20%;
+	
 	@media all and (max-width: 1080px){
-		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index:999;
+		background-color: #fff;
+		left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+		padding: 20px;
+		width: 40%;
+		height: 100vh;
+		overflow-y: auto;
+	} 
+	@media all and (max-width: 768px){
+		width: 50%;
+	}
+	@media all and (max-width: 640px){
+		width: 65%;
+	}
+	@media all and (max-width: 480px){
+		width: 85%;
+	}
+	@media all and (max-width: 360px){
+		width: 95%;
 	}
 
 `;
@@ -196,8 +221,26 @@ const WidgetTitle = styled.h2`
 	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 20px ;
+	width: 60%;
+	display: inline-block;
 `;
+const Close = styled.div`
+	width: 20px;
+	display: none;
+	margin-left: 100px;
+	@media all and (max-width: 1080px){
+		display: inline-block;
+	}
+	@media all and (max-width: 980px){
+		margin-left: 80px;
+	}
 
+
+`;
+const CloseIcon = styled.img`
+	display: block;
+	width: 100%;
+`;
 const PriceSlider = styled.div`
 	width: 100%;
 	display: flex;

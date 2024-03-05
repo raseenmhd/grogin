@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet';
 
-import HeaderPage from './Header';
-import NavBar from "../includes/NavBar";
-import MainHeader from '../includes/MainHeader';
+import HeaderPage from '../includes/Header/Header';
+import NavBar from "../includes/Header/Header-inner/NavBar";
+import MainHeader from '../includes/Header/Header-inner/MainHeader';
 
 
 // images
