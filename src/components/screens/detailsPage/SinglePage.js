@@ -8,11 +8,11 @@ import MainHeader from "../../includes/Header/Header-inner/MainHeader";
 import Header from '../../includes/Header/Header';
 import NavBar from "../../includes/Header/Header-inner/NavBar";
 import Pagination from '../../includes/Pagination';
-import Footer from '../Footer/Footer';
+import Footer from '../../includes/Footer/Footer';
 
 
 import { Products } from "../../data/data"; 
-import Review from './Review';
+import Review from './SinglePage-inner/Review';
 
 import ReactImageMagnify from 'react-image-magnify';
 

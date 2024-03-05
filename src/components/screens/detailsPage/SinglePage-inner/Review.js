@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
-import profile from "../../../assets/images/profile.png"
+import profile from "../../../../assets/images/profile.png"
 
 
 const Review = ({ product }) => {

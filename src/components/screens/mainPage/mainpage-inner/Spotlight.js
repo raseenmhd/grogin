@@ -5,12 +5,12 @@ import styled from 'styled-components'
 import ProductListpage from './ProdectList';
 
 
-import shoparrow from "../../../assets/images/shopicon.svg";
-import banner from "../../../assets/images/banner.png";
-import arrow from "../../../assets/images/Vector.svg";
-import listIcon1 from "../../../assets/images/Icon1.svg";
-import listIcon2 from "../../../assets/images/Icon 2.svg";
-import filter from "../../../assets/images/filter.png";
+import shoparrow from "../../../../assets/images/shopicon.svg";
+import banner from "../../../../assets/images/banner.png";
+import arrow from "../../../../assets/images/Vector.svg";
+import listIcon1 from "../../../../assets/images/Icon1.svg";
+import listIcon2 from "../../../../assets/images/Icon 2.svg";
+import filter from "../../../../assets/images/filter.png";
 
 
 function Spotlight({data , toggleFilter}) {

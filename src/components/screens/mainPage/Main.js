@@ -2,18 +2,18 @@ import React,{useState}from 'react'
 import { Helmet } from 'react-helmet';
 
 
-import MainHeader from "../includes/Header/Header-inner/MainHeader";
-import HeaderPage from '../includes/Header/Header';
-import NavBar from "../includes/Header/Header-inner/NavBar";
-import Filter from '../screens/spotlight/Filter';
-import Pagination from "../includes/Pagination"
+import MainHeader from "../../includes/Header/Header-inner/MainHeader";
+import HeaderPage from '../../includes/Header/Header';
+import NavBar from "../../includes/Header/Header-inner/NavBar";
+import Filter from './mainpage-inner/Filter';
+import Pagination from "../../includes/Pagination"
 import styled from 'styled-components';
-import Spotlight from '../screens/spotlight/Spotlight';
-import Footer from './Footer/Footer';
+import Spotlight from './mainpage-inner/Spotlight';
+import Footer from '../../includes/Footer/Footer';
 
 
-import { Products } from '../data/data';
-import RepHeader from '../includes/ResponsiveHeader/RepHeader';
+import { Products } from '../../data/data';
+import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 
 	
 function Main() {

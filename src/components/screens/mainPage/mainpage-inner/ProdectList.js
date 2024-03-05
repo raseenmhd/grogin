@@ -3,12 +3,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-import stoke from "../../../assets/images/cart.svg"
-// import Favoriteicon from "../../../assets/images/heart.svg"
-
-
-import star from "../../../assets/images/star.svg"
-import start2 from "../../../assets/images/start2.svg"
+import stoke from "../../../../assets/images/cart.svg"
+import star from "../../../../assets/images/star.svg"
+import start2 from "../../../../assets/images/start2.svg"
 
 
 function ProductList({data}) {

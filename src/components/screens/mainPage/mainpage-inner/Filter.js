@@ -6,9 +6,9 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
 
-import plusIcon from "../../../assets/images/plus.svg";
-import { Productcategory } from '../../data/data';
-import closeIcon from "../../../assets/images/close.svg";
+import plusIcon from "../../../../assets/images/plus.svg";
+import { Productcategory } from '../../../data/data';
+import closeIcon from "../../../../assets/images/close.svg";
 
 function valuetext(value){
 	return `${value}°C`;
