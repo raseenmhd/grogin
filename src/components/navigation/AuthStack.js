@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 
 
-import Login from "../screens/Login";
-import Signup from "../screens/Signup";
+import Login from "./../screens/login/Login";
+import Signup from "../screens/signup/Signup";
 
 
 function AuthStack() {

@@ -82,7 +82,7 @@ function SinglePage({data}) {
 
 //
 	const { productId } = useParams();
-	console.log(Products,productId)
+	// console.log(Products,productId)
     const product = Products.find((product) => product.id === productId);
     if (!product) {
         return <div>Product not found!</div>;

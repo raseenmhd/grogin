@@ -13,11 +13,11 @@ function ProductList({data}) {
 	const limiteData = data.slice(0,15);
 
 //
-	const navigate = useNavigate(); 
+	// const navigate = useNavigate(); 
 
-	const handleNavigate = (productId) => {
-        navigate(`/product/${productId}`);
-    };
+	// const handleNavigate = (productId) => {
+    //     navigate(`/product/${productId}`);
+    // };
 //
 
 const [liked, setLiked] = useState(false);
@@ -29,7 +29,7 @@ const toggleLike = () => {
 		<ProductContainer>
 			{limiteData.map((product) => {
 				return(	
-					<ProductTable key={product.id} onClick={() => handleNavigate(product.id)} >
+					<ProductTable key={product.id}>
 						<NavLink to={`/product/${product.id}`}>
 							<ProductImage>
 								<Image src={product.cover_image} />

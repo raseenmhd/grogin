@@ -14,7 +14,7 @@ function HomeStack() {
     <>
     <Routes>
         <Route path='/' element={<Main />} />
-        <Route path="/product/:Id" element={<SinglePage data={Products}/>} />
+        <Route path="/product/:productId" element={<SinglePage data={Products}/>} />
     </Routes>
     </>
   )

@@ -1,22 +1,35 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { NavLink,useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'
+
+import HeaderPage from '../../includes/Header/Header'
+import NavBar from "../../includes/Header/Header-inner/NavBar";
+import MainHeader from '../../includes/Header/Header-inner/MainHeader';
 
 
-import HeaderPage from '../includes/Header/Header';
-import NavBar from "../includes/Header/Header-inner/NavBar";
-import MainHeader from '../includes/Header/Header-inner/MainHeader';
+import arrow from "./../../../assets/images/Vector.svg"
 
 
-import arrow from "../../assets/images/Vector.svg"
+function Login() {
+	const navigate = useNavigate();
+	const [username,setUsername] = useState();
+	const [password,setPassword] = useState();
+
+	const handleLoginSubmit = (e) => {
+		e.preventDefault();
+		navigate('/home'); 
+	};
 
 
-function LoginPage() {
+	const handleNavigate = (e) => {
+		e.preventDefault();
+		navigate("/auth/register");
+	};
   return (
 	<>
 		<Helmet>
-			<title>Grogin | Register</title>
+			<title>Grogin | Login</title>
 		</Helmet>
 		<MainHeader/>
 		<HeaderPage/>
@@ -27,11 +40,11 @@ function LoginPage() {
 				<Arrow>
 					<Icon src={arrow} alt="Arrow" />
 				</Arrow>
-				<Page>My account</Page>
+				<Page>My account </Page>
 				<Arrow>
 					<Icon src={arrow} alt="Arrow" />
 				</Arrow>
-				<Page>Register</Page>
+				<Page>Login</Page>
 			</PaginationContainer>
 		</PaginationWrapper>
 	  	<LoginPageContainer>
@@ -39,33 +52,28 @@ function LoginPage() {
 				<NavLink to="/">
 					<LoginButton>Login</LoginButton>
 				</NavLink>
-				<NavLink to="/auth/register">
-					<RegisterButton>Register</RegisterButton>
+				<NavLink to="/auth/register" >
+				<RegisterButton onClick={handleNavigate}>Register</RegisterButton>
 				</NavLink>
 			</LoginPageTitle>
 			<Paragraph>
-            There are many advantages to creating an account: the payment process is faster, shipment tracking is possible and much more.
+				If you have an account, sign in with your username or email address.
 			</Paragraph>
-			<LoginForm>
+			<LoginForm >
 				<UserName>
-					<UserNameLabel for="user_name">Username *</UserNameLabel>
-					<UserNameInput type="text" id="user_name" />
+					<UserNameLabel for="user_name">Username or email address *</UserNameLabel>
+					<UserNameInput type="text" id="user_name" onChange={(e) => setUsername(e.target.value)} value={username} />
 				</UserName>
-                <EmailName>
-					<EmailLabel for="email">email address *</EmailLabel>
-					<EmailInput type="email" id="email" />
-				</EmailName>
 				<Password>
 					<PasswordLabel for="password">Password *</PasswordLabel>
-					<PasswordInput type="password" id="password" />
+					<PasswordInput type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
 				</Password>
-				<SubmitEvent type="submit">Register</SubmitEvent>
+				<SubmitEvent onClick={handleLoginSubmit} type="submit">Login</SubmitEvent>
 			</LoginForm>
 		</LoginPageContainer>
 	</>
   )
 }
-
 const PaginationWrapper = styled.div`
 	padding: 20px 50px 10px;
 `;
@@ -100,10 +108,12 @@ const Page = styled.span`
 	font-size: 600;
 `;
 
+
 const LoginPageContainer = styled.div`
 	width: 40%;
 	padding: 90px 0;
 	margin: 0 auto;
+	
 `;
 
 const LoginPageTitle = styled.div`
@@ -117,11 +127,11 @@ const LoginPageTitle = styled.div`
 const LoginButton = styled.h1`
 	font-size: 30px;
 	font-weight: bold;
-    opacity: 0.5;
 `;
 
 const RegisterButton = styled.h1`
 	font-size: 30px;
+	opacity: 0.5;
 	font-weight: bold;
 `;
 
@@ -179,18 +189,4 @@ const SubmitEvent = styled.button`
 	font-weight: bold;
 	border-radius: 10px;
 `
-const EmailName = styled.div`
-    padding-top: 15px;
-`;
-const EmailLabel = styled.label`
-    font-size: 15px;
-	margin: 7px 0 10px;
-	display: block;
-`;
-const EmailInput = styled.input`
-    width: 100%;
-	padding: 15px;
-	border: 1px solid #000;
-	border-radius: 10px;
-`;
-export default LoginPage
+export default Login
