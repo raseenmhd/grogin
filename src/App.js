@@ -3,15 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import AuthStack from './components/navigation/AuthStack';
 import HomeStack from './components/navigation/HomeStack';
+import { useState } from 'react';
 
 function App() {
+  const [is_verfied,setIsVerfied] = useState(true)
   return (
     <Router>
-      <Routes>
-        <Route path='' element={<AuthStack />} />
-        <Route path='/home' element={<HomeStack />} />
-      </Routes>
-    </Router>
+      {is_verfied ? <HomeStack /> : <AuthStack />}
+      </Router>
   );
 }
 

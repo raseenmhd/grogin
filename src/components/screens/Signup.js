@@ -36,10 +36,10 @@ function LoginPage() {
 		</PaginationWrapper>
 	  	<LoginPageContainer>
 			<LoginPageTitle>
-				<NavLink to="/login">
+				<NavLink to="/">
 					<LoginButton>Login</LoginButton>
 				</NavLink>
-				<NavLink to="">
+				<NavLink to="/auth/register">
 					<RegisterButton>Register</RegisterButton>
 				</NavLink>
 			</LoginPageTitle>

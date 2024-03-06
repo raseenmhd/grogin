@@ -7,10 +7,11 @@ import Signup from "../screens/Signup";
 
 
 function AuthStack() {
+
   return (
-    <Routes>
+    <Routes >
       <Route path='/' element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/auth/register" element={<Signup />} />
     </Routes>
   );
 }

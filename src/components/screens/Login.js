@@ -20,7 +20,7 @@ function Login() {
 	};
 	const handleNavigate = (e) => {
 		e.preventDefault();
-		navigate("/signup");
+		navigate("/auth/register");
 	};
   return (
 	<>
@@ -45,10 +45,10 @@ function Login() {
 		</PaginationWrapper>
 	  	<LoginPageContainer>
 			<LoginPageTitle>
-				<NavLink to="#">
+				<NavLink to="/">
 					<LoginButton>Login</LoginButton>
 				</NavLink>
-				<NavLink to="#" >
+				<NavLink to="/auth/register" >
 				<RegisterButton onClick={handleNavigate}>Register</RegisterButton>
 				</NavLink>
 			</LoginPageTitle>
