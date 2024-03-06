@@ -1,5 +1,5 @@
 import React, {useState}from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink , useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 
@@ -11,6 +11,13 @@ import start2 from "../../../../assets/images/start2.svg"
 function ProductList({data}) {
 
 	const limiteData = data.slice(0,15);
+
+//
+	const navigate = useNavigate(); 
+
+	const handleNavigate = (productId) => {
+        navigate(`/product/${productId}`);
+    };
 //
 
 const [liked, setLiked] = useState(false);
@@ -22,7 +29,7 @@ const toggleLike = () => {
 		<ProductContainer>
 			{limiteData.map((product) => {
 				return(	
-					<ProductTable key={product.id} >
+					<ProductTable key={product.id} onClick={() => handleNavigate(product.id)} >
 						<NavLink to={`/product/${product.id}`}>
 							<ProductImage>
 								<Image src={product.cover_image} />

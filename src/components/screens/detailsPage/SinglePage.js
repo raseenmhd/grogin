@@ -3,6 +3,7 @@ import React, {useState ,useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+
 import styled from 'styled-components';
 import MainHeader from "../../includes/Header/Header-inner/MainHeader";
 import Header from '../../includes/Header/Header';
@@ -32,7 +33,7 @@ import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 
 
 
-function SinglePage() {
+function SinglePage({data}) {
 	
 	useEffect(() => {
 		window.scrollTo(0, 0);

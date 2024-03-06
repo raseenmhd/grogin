@@ -1,26 +1,17 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-import Login from './components/screens/Login';
-import Signup from './components/screens/Signup';
-import Main from './components/screens/mainPage/Main';
-import SinglePage from './components/screens/detailsPage/SinglePage';
-
-import {Products} from './components/data/data';
+import AuthStack from './components/navigation/AuthStack';
+import HomeStack from './components/navigation/HomeStack';
 
 function App() {
-	
-
   return (
-	<Router>
-		<Routes>
-			<Route path='/' element={<Main />}/>
-			<Route path='login' element={<Login />}/>
-			<Route path='signup' element={<Signup/>}/>
-			<Route path="/product/:productId" element={<SinglePage data={Products} />} />
-		</Routes>
-	</Router>
+    <Router>
+      <Routes>
+        <Route path='' element={<AuthStack />} />
+        <Route path='/home' element={<HomeStack />} />
+      </Routes>
+    </Router>
   );
 }
 

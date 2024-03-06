@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 
@@ -8,11 +8,20 @@ import NavBar from "../includes/Header/Header-inner/NavBar";
 import MainHeader from '../includes/Header/Header-inner/MainHeader';
 
 
-// images
 import arrow from "../../assets/images/Vector.svg"
-// images
+
 
 function Login() {
+	const navigate = useNavigate();
+
+	const handleLoginSubmit = (e) => {
+		e.preventDefault();
+		navigate('/home'); 
+	};
+	const handleNavigate = (e) => {
+		e.preventDefault();
+		navigate("/signup");
+	};
   return (
 	<>
 		<Helmet>
@@ -39,14 +48,14 @@ function Login() {
 				<NavLink to="#">
 					<LoginButton>Login</LoginButton>
 				</NavLink>
-				<NavLink to="/signup">
-					<RegisterButton>Register</RegisterButton>
+				<NavLink to="#" >
+				<RegisterButton onClick={handleNavigate}>Register</RegisterButton>
 				</NavLink>
 			</LoginPageTitle>
 			<Paragraph>
 				If you have an account, sign in with your username or email address.
 			</Paragraph>
-			<LoginForm>
+			<LoginForm >
 				<UserName>
 					<UserNameLabel for="user_name">Username or email address *</UserNameLabel>
 					<UserNameInput type="text" id="user_name" />
@@ -55,7 +64,7 @@ function Login() {
 					<PasswordLabel for="password">Password *</PasswordLabel>
 					<PasswordInput type="password" id="password" />
 				</Password>
-				<SubmitEvent type="submit">Login</SubmitEvent>
+				<SubmitEvent onClick={handleLoginSubmit} type="submit">Login</SubmitEvent>
 			</LoginForm>
 		</LoginPageContainer>
 	</>
