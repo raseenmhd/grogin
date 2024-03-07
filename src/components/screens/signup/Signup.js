@@ -68,6 +68,12 @@ function LoginPage() {
 
 const PaginationWrapper = styled.div`
 	padding: 20px 50px 10px;
+	@media all and (max-width: 640px){
+		padding: 20px 25px 10px;
+	}
+	@media all and (max-width: 480px){
+		padding: 20px 20px 10px;
+	}
 `;
 
 const PaginationContainer = styled.div`
@@ -104,6 +110,15 @@ const LoginPageContainer = styled.div`
 	width: 40%;
 	padding: 90px 0;
 	margin: 0 auto;
+	@media all and (max-width: 1080px){
+		width: 55%;
+	}
+	@media all and (max-width: 980px){
+		width: 70%;
+	}
+	@media all and (max-width: 640px){
+		width: 90%;
+	}
 `;
 
 const LoginPageTitle = styled.div`
@@ -112,62 +127,88 @@ const LoginPageTitle = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+	@media all and (max-width: 480px){
+		padding: 0 30px 20px;
+	}
+	@media all and (max-width: 360px){
+		padding: 0 5px 0px;
+	}
+
 `;
 
 const LoginButton = styled.h1`
 	font-size: 30px;
 	font-weight: bold;
     opacity: 0.5;
+	@media all and (max-width: 768px){
+		font-size: 25px;
+	}
 `;
 
 const RegisterButton = styled.h1`
 	font-size: 30px;
 	font-weight: bold;
+	@media all and (max-width: 768px){
+		font-size: 25px;
+	}
 `;
 
 const Paragraph = styled.p`
 	font-size: 15px;
 	text-align: center;
 	padding: 15px 0;
-`
+	@media all and (max-width: 360px){
+		font-size: 14px;	
+		padding: 12px 0;
+	}
+`;
 
 const LoginForm = styled.form`
   
-`
+`;
 
 const UserName = styled.div`
-`
+`;
 
 const UserNameLabel = styled.label`
 	font-size: 15px;
 	margin: 7px 0 10px;
 	display: block;
-`
+`;
 
 const UserNameInput = styled.input`
   	width: 100%;
 	padding: 15px;
 	border: 1px solid #000;
 	border-radius: 10px;
+	@media all and (max-width: 768px){
+		padding: 10px;
+	}
 
-`
+`;
 
 const Password = styled.div`
 	padding-top: 15px;
-`
+	@media all and (max-width: 480px){
+		padding: 0;
+	}
+`;
 
 const PasswordLabel = styled.label`
   	font-size: 15px;
 	margin: 7px 0 10px;
 	display: block;
-`
+`;
 
 const PasswordInput = styled.input`
   	width: 100%;
 	padding: 15px;
 	border: 1px solid #000;
 	border-radius: 10px;
-`
+	@media all and (max-width: 768px){
+		padding: 10px;
+	}
+`;
 
 const SubmitEvent = styled.button`
 	width: 100%;
@@ -178,9 +219,15 @@ const SubmitEvent = styled.button`
 	color: #fff;
 	font-weight: bold;
 	border-radius: 10px;
-`
+	@media all and (max-width: 360px){
+		margin-top: 20px;
+	}
+`;
 const EmailName = styled.div`
     padding-top: 15px;
+	@media all and (max-width: 768px){
+		padding: 0;
+	}
 `;
 const EmailLabel = styled.label`
     font-size: 15px;
@@ -192,5 +239,8 @@ const EmailInput = styled.input`
 	padding: 15px;
 	border: 1px solid #000;
 	border-radius: 10px;
+	@media all and (max-width: 768px){
+		padding: 10px;
+	}
 `;
 export default LoginPage

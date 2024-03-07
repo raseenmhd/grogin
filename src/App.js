@@ -6,7 +6,7 @@ import HomeStack from './components/navigation/HomeStack';
 import { useState } from 'react';
 
 function App() {
-  	const [is_verfied,setIsVerfied] = useState(true)
+  	const [is_verfied,setIsVerfied] = useState(false)
   return (
     <Router>
       {is_verfied ? <HomeStack /> : <AuthStack />}
