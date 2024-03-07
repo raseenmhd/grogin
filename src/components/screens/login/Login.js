@@ -9,6 +9,7 @@ import MainHeader from '../../includes/Header/Header-inner/MainHeader';
 
 
 import arrow from "./../../../assets/images/Vector.svg"
+import RepHeader from '../../includes/ResponsiveHeader/RepHeader'
 
 
 function Login() {
@@ -34,6 +35,7 @@ function Login() {
 		<MainHeader/>
 		<HeaderPage/>
 		<NavBar/>
+		<RepHeader />
 		<PaginationWrapper>
 			<PaginationContainer>
 				<HomePage>Home</HomePage>
@@ -77,11 +79,9 @@ function Login() {
 const PaginationWrapper = styled.div`
 	padding: 20px 50px 10px;
 	@media all and (max-width: 640px){
-		padding: 20px 25px 10px;
+		padding: 20px 15px 10px;
 	}
-	@media all and (max-width: 480px){
-		padding: 20px 20px 10px;
-	}
+
 `;
 
 const PaginationContainer = styled.div`
