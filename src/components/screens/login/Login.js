@@ -1,26 +1,66 @@
-import React, { useState } from 'react'
-import { NavLink,useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
+import React, { useState } from 'react';
+import { NavLink,useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
-import HeaderPage from '../../includes/Header/Header'
+
+import axios from 'axios';
+import { BASE_URL } from '../../helpers/axiosConfig';
+//api 
+
+import HeaderPage from '../../includes/Header/Header';
 import NavBar from "../../includes/Header/Header-inner/NavBar";
 import MainHeader from '../../includes/Header/Header-inner/MainHeader';
+//components
 
-
-import arrow from "./../../../assets/images/Vector.svg"
-import RepHeader from '../../includes/ResponsiveHeader/RepHeader'
-
+import arrow from "./../../../assets/images/Vector.svg";
+import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
+//images
 
 function Login() {
 	const navigate = useNavigate();
-	const [username,setUsername] = useState();
-	const [password,setPassword] = useState();
 
+	const [phone,setPhone] = useState();
+	const [password,setPassword] = useState();
+	const [country,setCountry] = useState("IN");
+	const [message, setMessage] = useState();
+
+	
 	const handleLoginSubmit = (e) => {
 		e.preventDefault();
-		navigate('/home'); 
-	};
+		axios
+			.post(`${BASE_URL}api/v1/users/student/login/`, { phone, password, country })
+			.then((response) => {
+				let data = response.data;
+				if (data.status_code === 6000) {
+					localStorage.setItem("user_data", JSON.stringify(data.data));
+					navigate("/")
+				} else {
+					const errors = data.data.errors;
+					let errorMessage = "";
+
+					if(errors) {
+						for (const key in errors) {
+							const errorArray = errors[key];
+							if (Array.isArray(errorArray) && errorArray.length > 0) {
+								errorMessage = `${key}: ${errorArray[0]}`;
+								break;
+							}
+						}
+					} else if (data.message) {
+						errorMessage = data.message;
+					} else {
+						errorMessage = "Unknown error occurred";
+						console.log(data.message);
+					}
+					setMessage(errorMessage);
+				}
+			})
+			.catch((error) => {
+				
+			});
+
+		};
 
 
 	const handleNavigate = (e) => {
@@ -55,22 +95,42 @@ function Login() {
 					<LoginButton>Login</LoginButton>
 				</NavLink>
 				<NavLink to="/auth/register" >
-				<RegisterButton onClick={handleNavigate}>Register</RegisterButton>
+				<RegisterButton onSubmit={handleNavigate}>Register</RegisterButton>
 				</NavLink>
 			</LoginPageTitle>
 			<Paragraph>
 				If you have an account, sign in with your username or email address.
 			</Paragraph>
-			<LoginForm >
+			<LoginForm onSubmit={handleLoginSubmit} >
 				<UserName>
-					<UserNameLabel for="user_name">Username or email address *</UserNameLabel>
-					<UserNameInput type="text" id="user_name" onChange={(e) => setUsername(e.target.value)} value={username} />
+					<UserNameLabel for="user_name">Phone number *</UserNameLabel>
+					<UserNameInput 
+						type="number" 
+						id="user_name" 
+						onChange={(e) => setPhone(e.target.value)} 
+						value={phone} 
+					/>
 				</UserName>
 				<Password>
 					<PasswordLabel for="password">Password *</PasswordLabel>
-					<PasswordInput type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+					<PasswordInput 
+						type="password" 
+						id="password" 
+						onChange={(e) => setPassword(e.target.value)} 
+						value={password}
+					/>
 				</Password>
-				<SubmitEvent onClick={handleLoginSubmit} type="submit">Login</SubmitEvent>
+				<Password>
+					<PasswordLabel for="country">country *</PasswordLabel>
+					<PasswordInput 
+						type="text" 
+						id="country" 
+						onChange={(e) => setCountry(e.target.value)} 
+						value={country}
+					/>
+				</Password>
+				{ message && <ErrorMessage>{message}</ErrorMessage>}
+				<SubmitEvent type="submit">Login</SubmitEvent>
 			</LoginForm>
 		</LoginPageContainer>
 	</>
@@ -232,5 +292,12 @@ const SubmitEvent = styled.button`
 	@media all and (max-width: 360px){
 		margin-top: 20px;
 	}
+`;
+const ErrorMessage = styled.p`
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 15px;
+	color: red;
+	text-align: center;
 `;
 export default Login

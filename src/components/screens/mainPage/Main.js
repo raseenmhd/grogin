@@ -10,7 +10,7 @@ import Pagination from "../../includes/Pagination"
 import styled from 'styled-components';
 import Spotlight from './mainpage-inner/Spotlight';
 import Footer from '../../includes/Footer/Footer';
-
+import Profile from '../../includes/Header/Header-inner/Profile';
 
 import { Products } from '../../data/data';
 import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
@@ -23,6 +23,12 @@ function Main() {
     const toggleFilter = () => {
         setFilteropen(!isFilteropen);
     }
+//
+	const [isprofileopen, setProfile] = useState(false);
+
+	const toggleProfile = () => {
+		setProfile(!isprofileopen);
+	}
 //
 	const [data, setData] = useState(Products);
 
@@ -40,8 +46,9 @@ function Main() {
 			<title>Grogin | shoping</title>
 		</Helmet>
 		<MainHeader/>
-			<HeaderPage />
+			<HeaderPage toggleProfile={toggleProfile}/>
 			<RepHeader/>
+			<Profile isprofileopen={isprofileopen}/>
 			<NavBar/>
 			<Pagination />
 		<SpotlightContainer>

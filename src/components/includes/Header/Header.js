@@ -14,7 +14,7 @@ import logo from "../../../assets/images/logo.png";
 
 
 
-function Header() {
+function Header({toggleProfile}) {
   return (
 	<>
 		<HeaderContainer>
@@ -77,7 +77,7 @@ function Header() {
 					</MiddleContainer>
 					<RightContainer>
 							<Profile>
-								<Link to="login">
+								<Link to="" onClick={toggleProfile}>
 									<ProfileIcon>
 										<Profilelogo src={profile}/>
 									</ProfileIcon>
@@ -87,7 +87,7 @@ function Header() {
 								</Link>
 							</Profile>
 							<Wishlist>
-								<Link to="#">
+								<Link to="">
 									<WishlistIcon>
 										<Wishlistimg src={heart}/>
 									</WishlistIcon>
@@ -103,7 +103,7 @@ function Header() {
 									</CartIcon>
 									<CartText>
 										Your Cart
-										</CartText>
+									</CartText>
 								</Link>
 							</Cart>
 						</RightContainer>
