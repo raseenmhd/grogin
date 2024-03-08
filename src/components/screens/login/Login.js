@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , useContext } from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { UserContext } from '../../../App';
 
 
 import axios from 'axios';
@@ -17,6 +18,7 @@ import arrow from "./../../../assets/images/Vector.svg";
 import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 //images
 
+
 function Login() {
 	const navigate = useNavigate();
 
@@ -25,8 +27,10 @@ function Login() {
 	const [country,setCountry] = useState("IN");
 	const [message, setMessage] = useState();
 
+	const { updateUserData } = useContext(UserContext)
 	
 	const handleLoginSubmit = (e) => {
+		setMessage("");
 		e.preventDefault();
 		axios
 			.post(`${BASE_URL}api/v1/users/student/login/`, { phone, password, country })
@@ -34,6 +38,7 @@ function Login() {
 				let data = response.data;
 				if (data.status_code === 6000) {
 					localStorage.setItem("user_data", JSON.stringify(data.data));
+					updateUserData({type:"LOGIN" , payload: data.data});
 					navigate("/")
 				} else {
 					const errors = data.data.errors;

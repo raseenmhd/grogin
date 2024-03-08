@@ -12,10 +12,10 @@ import {Products} from './../data/data';
 function HomeStack() {
   return (
     <>
-    <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path="/product/:productId" element={<SinglePage data={Products}/>} />
-    </Routes>
+      <Routes>
+          <Route path='/' element={<Main />} />
+          <Route path="/product/:productId" element={<SinglePage data={Products}/>} />
+      </Routes>
     </>
   )
 }
