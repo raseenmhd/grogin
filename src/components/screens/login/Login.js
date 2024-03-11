@@ -22,8 +22,8 @@ import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 function Login() {
 	const navigate = useNavigate();
 
-	const [phone,setPhone] = useState();
-	const [password,setPassword] = useState();
+	const [phone,setPhone] = useState("8848815569");
+	const [password,setPassword] = useState("Siyad@123");
 	const [country,setCountry] = useState("IN");
 	const [message, setMessage] = useState();
 

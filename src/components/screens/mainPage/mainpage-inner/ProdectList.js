@@ -12,19 +12,11 @@ function ProductList({data}) {
 
 	const limiteData = data.slice(0,15);
 
-//
-	// const navigate = useNavigate(); 
+	const [liked, setLiked] = useState(false);
 
-	// const handleNavigate = (productId) => {
-    //     navigate(`/product/${productId}`);
-    // };
-//
-
-const [liked, setLiked] = useState(false);
-
-const toggleLike = () => {
-	setLiked(!liked);
-};
+	const toggleLike = () => {
+		setLiked(!liked);
+	};
   	return (
 		<ProductContainer>
 			{limiteData.map((product) => {

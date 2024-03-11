@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 
 import MainHeader from "../../includes/Header/Header-inner/MainHeader";
-import HeaderPage from '../../includes/Header/Header';
+import Header from '../../includes/Header/Header';
 import NavBar from "../../includes/Header/Header-inner/NavBar";
 import Filter from './mainpage-inner/Filter';
 import Pagination from "../../includes/Pagination"
@@ -16,7 +16,7 @@ import { Products } from '../../data/data';
 import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 
 	
-function Main() {
+function Main({toggleProfile , isprofileopen}) {
 
 	const [isFilteropen, setFilteropen] = useState(false);
 
@@ -24,12 +24,7 @@ function Main() {
         setFilteropen(!isFilteropen);
     }
 //
-	const [isprofileopen, setProfile] = useState(false);
 
-	const toggleProfile = () => {
-		setProfile(!isprofileopen);
-	}
-//
 	const [data, setData] = useState(Products);
 
     const filterResult = (selectedCategories) => {
@@ -46,14 +41,14 @@ function Main() {
 			<title>Grogin | shoping</title>
 		</Helmet>
 		<MainHeader/>
-			<HeaderPage toggleProfile={toggleProfile}/>
+			<Header toggleProfile={toggleProfile}/>
 			<RepHeader/>
 			<Profile isprofileopen={isprofileopen}/>
 			<NavBar/>
 			<Pagination />
 		<SpotlightContainer>
 			<Filter filterResult={filterResult} isFilteropen={isFilteropen} toggleFilter={toggleFilter}/> 
-			<Spotlight data={data} toggleFilter={toggleFilter}/>
+			<Spotlight data={data}/>
 		</SpotlightContainer>
 		<Footer/>
 				

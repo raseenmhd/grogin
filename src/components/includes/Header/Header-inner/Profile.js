@@ -16,7 +16,8 @@ function Profile({isprofileopen}) {
 	const {userData , updateUserData} = useContext(UserContext)
 	
 	const handleLogout = () => {
-		updateUserData({type : "LOGOUT"})
+		updateUserData({type : "LOGOUT"});	
+		
 	}
 //
 	const [username, setUsername] = useState({
@@ -38,7 +39,7 @@ function Profile({isprofileopen}) {
 			.catch((error) => {
 				console.log(error);
 			})
-	});
+	},[userData?.access]);
 
   return (
 	<ProfileContainer isOpen={isprofileopen}>
