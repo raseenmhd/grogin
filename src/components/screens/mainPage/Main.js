@@ -48,7 +48,7 @@ function Main({toggleProfile , isprofileopen}) {
 			<Pagination />
 		<SpotlightContainer>
 			<Filter filterResult={filterResult} isFilteropen={isFilteropen} toggleFilter={toggleFilter}/> 
-			<Spotlight data={data}/>
+			<Spotlight data={data} toggleFilter={toggleFilter}/>
 		</SpotlightContainer>
 		<Footer/>
 				
