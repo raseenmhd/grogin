@@ -11,6 +11,7 @@ function AuthStack() {
   return (
     <Routes >
       <Route path='/' element={<Login />} />
+      
       <Route path="/auth/register" element={<Signup />} />
     </Routes>
   );

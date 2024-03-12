@@ -1,44 +1,30 @@
 import './App.css';
-import React, { useState , useEffect } from 'react';
-import { BrowserRouter as Router, } from "react-router-dom";
-
+import React from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
+import { StoreProvider } from './components/context/Store';
 import AuthStack from './components/navigation/AuthStack';
 import HomeStack from './components/navigation/HomeStack';
+import { useStore } from './components/context/Store';
 
-export const UserContext = React.createContext();
 
-function App() {  
-	const [userData , setUserData] = useState({});
-	const updateUserData = (action) => {
-		switch (action.type){
-			case "LOGOUT":
-				setUserData(null);
-				localStorage.clear();
-				break;
-
-			case "LOGIN":
-				setUserData(action.payload);
-				break;
-				
-			default:
-				break;
-		}
-	};
-
-	useEffect( () => {
-	  setUserData( JSON.parse(localStorage.getItem("user_data")));
-	},[]);
-  
-  	
+function App() {
   return (
-	<>
-		<UserContext.Provider value={{userData , updateUserData}}>
-			<Router>
-				{userData?.access ? <HomeStack /> : <AuthStack />}
-			</Router>
-		</UserContext.Provider>
-	</>
+    <StoreProvider>
+      <Router>
+        <AppRouter />
+      </Router>
+    </StoreProvider>
   );
 }
+
+function AppRouter() {
+  const { userData } = useStore(); 
+
+  return (
+    <>
+      {userData?.access ? <HomeStack /> : <AuthStack />}
+    </>
+  );
+} 
 
 export default App;

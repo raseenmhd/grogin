@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { Routes, Route } from "react-router-dom";
 
 
@@ -10,14 +10,19 @@ import {Products} from './../data/data';
 
 
 function HomeStack() {
+
+  const [isprofileopen, setProfile] = useState(false);
+
+	const toggleProfile = () => {
+		setProfile(!isprofileopen);
+	}
   return (
     <>
       <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path="/product/:productId" element={<SinglePage data={Products}/>} />
+          <Route path='/' element={<Main toggleProfile={toggleProfile} isprofileopen={isprofileopen}/>} />
+          <Route path="/product/:productId" element={<SinglePage data={Products} toggleProfile={toggleProfile} isprofileopen={isprofileopen}/>} />
       </Routes>
     </>
   )
 }
-
 export default HomeStack

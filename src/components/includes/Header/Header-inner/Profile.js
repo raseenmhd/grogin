@@ -1,64 +1,63 @@
-import React , {useContext , useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+
+
+import axios from 'axios';
+import profile from '../../../../assets/images/profile.png';
 
 
 import { BASE_URL } from '../../../helpers/axiosConfig';
-import { UserContext } from '../../../../App';
+import { UserContext } from '../../../context/Store';
 
 
-import profile from "../../../../assets/images/profile.png";
-import axios from 'axios';
+function Profile({ isprofileopen }) {
+    const { userData, dispatch } = useContext(UserContext);
+	const navigate = useNavigate()
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+		navigate("/");
+    };
 
+    const [username, setUsername] = useState({
+        full_name: "full_name",
+        phone: "phone",
+        unique_discord_id: "unique_discord_id",
+    });
 
-function Profile({isprofileopen}) {
+    useEffect(() => {
+        axios
+            .get(`${BASE_URL}api/v1/users/profile/`, {
+                headers: {
+                    Authorization: `Bearer ${userData?.access}`,
+                },
+            })
+            .then((response) => {
+                setUsername(response.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [userData]);
 
-	const {userData , updateUserData} = useContext(UserContext)
-	
-	const handleLogout = () => {
-		updateUserData({type : "LOGOUT"})
-	}
-//
-	const [username, setUsername] = useState({
-		full_name : "full_name",
-		phone: "phone",
-		unique_discord_id: "unique_discord_id",
-	});
-
-	useEffect( () => {
-		axios
-			.get(`${BASE_URL}api/v1/users/profile/`,{
-				headers: {
-					Authorization : `Bearer ${userData?.access}`,
-				},
-			})
-			.then((response) => {
-				setUsername(response.data.data)
-			})
-			.catch((error) => {
-				console.log(error);
-			})
-	},[]);
-
-  return (
-	<ProfileContainer isOpen={isprofileopen}>
-		<ProfileImage>
-			<Image src={profile} alt="Profile" />
-		</ProfileImage>
-		<UserName>{username.full_name}</UserName>
-		<Id>id : #{username.unique_discord_id}</Id>
-		{userData ? (
-			<Logout onClick={() => handleLogout()}>
-				Log out
-			</Logout>
-		) : (
-			<Login>
-				Log in
-			</Login>
-		)}
-		
-	</ProfileContainer>
-  );
+    return (
+        <ProfileContainer isOpen={isprofileopen}>
+            <ProfileImage>
+                <Image src={profile} alt="Profile" />
+            </ProfileImage>
+            <UserName>{username.full_name}</UserName>
+            <Id>id: #{username.unique_discord_id}</Id>
+            {userData ? (
+                <Logout onClick={handleLogout}> {/* Use handleLogout function */}
+                    Log out
+                </Logout>
+            ) : (
+                <Login>
+                    Log in
+                </Login>
+            )}
+        </ProfileContainer>
+    );
 }
 
 const ProfileContainer = styled.div`

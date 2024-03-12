@@ -10,10 +10,12 @@ import Header from '../../includes/Header/Header';
 import NavBar from "../../includes/Header/Header-inner/NavBar";
 import Pagination from '../../includes/Pagination';
 import Footer from '../../includes/Footer/Footer';
+import Profile from '../../includes/Header/Header-inner/Profile';
 
 
 import { Products } from "../../data/data"; 
 import Review from './SinglePage-inner/Review';
+
 
 import ReactImageMagnify from 'react-image-magnify';
 
@@ -30,10 +32,7 @@ import minIcon from "../../../assets/images/minicon.svg"
 import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 
 
-
-
-
-function SinglePage({data}) {
+function SinglePage({data , toggleProfile, isprofileopen}) {
 	
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -94,7 +93,8 @@ function SinglePage({data}) {
 				<title>{product.title}</title>
       		</Helmet>
             <MainHeader />
-            <Header />
+            <Header toggleProfile={toggleProfile}/>
+			<Profile isprofileopen={isprofileopen}/>
 			<RepHeader />
             <NavBar />
             <Pagination />
