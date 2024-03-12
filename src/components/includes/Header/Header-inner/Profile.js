@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, NavLink, useNavigate, useNavigation} from 'react-router-dom';
 
 
 import axios from 'axios';
@@ -13,11 +13,8 @@ import { UserContext } from '../../../context/Store';
 
 function Profile({ isprofileopen }) {
     const { userData, dispatch } = useContext(UserContext);
-	const navigate = useNavigate()
-    const handleLogout = () => {
-        dispatch({ type: "LOGOUT" });
-		navigate("/");
-    };
+    const navigate = useNavigate();
+    
 
     const [username, setUsername] = useState({
         full_name: "full_name",
@@ -39,6 +36,10 @@ function Profile({ isprofileopen }) {
                 console.log(error);
             });
     }, [userData]);
+	const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+		navigate('/');
+    };
 
     return (
         <ProfileContainer isOpen={isprofileopen}>
@@ -111,7 +112,7 @@ const Login = styled.button`
 	border-radius: 5px;
 	padding: 7px 20px;
 `;
-const Logout = styled(Link)`
+const Logout = styled.button`
 	color: #fff;
 	font-weight: bold;
 	cursor: pointer;

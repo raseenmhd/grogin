@@ -1,6 +1,6 @@
 // SinglePage.js
 import React, {useState ,useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 
@@ -38,6 +38,7 @@ function SinglePage({data , toggleProfile, isprofileopen}) {
 		window.scrollTo(0, 0);
 	}, []);
 
+	const navigate = useNavigate()
 //
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
@@ -86,6 +87,7 @@ function SinglePage({data , toggleProfile, isprofileopen}) {
     if (!product) {
         return <div>Product not found!</div>;
     }
+	
 
     return (
         <>
@@ -179,7 +181,8 @@ function SinglePage({data , toggleProfile, isprofileopen}) {
 							</MaxIconbox>
 							</Quantity>
 							<CartButton> <Icon src={bag}/>Add to cart</CartButton>
-							<BuyButton><Icon src={bag}/>Buy Now</BuyButton>
+							<BuyButton>
+							<Icon src={bag}/>Buy Now</BuyButton>
         				</CartContainer>
                         <ProdectNotices>
                             <NoticeBox>
