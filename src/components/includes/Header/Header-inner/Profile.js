@@ -38,7 +38,7 @@ function Profile({isprofileopen}) {
 			.catch((error) => {
 				console.log(error);
 			})
-	});
+	},[]);
 
   return (
 	<ProfileContainer isOpen={isprofileopen}>

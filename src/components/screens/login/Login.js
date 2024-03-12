@@ -33,7 +33,7 @@ function Login() {
 		setMessage("");
 		e.preventDefault();
 		axios
-			.post(`${BASE_URL}api/v1/users/student/login/`, { phone, password, country })
+			.post(`${BASE_URL}api/v1/users/student/login/`, { phone,country, password })
 			.then((response) => {
 				let data = response.data;
 				if (data.status_code === 6000) {
