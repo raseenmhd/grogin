@@ -2,7 +2,7 @@ import React, { useState , useContext } from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { UserContext } from '../../../App';
+import { UserContext } from '../../context/Store';
 
 
 import axios from 'axios';
@@ -22,12 +22,13 @@ import RepHeader from '../../includes/ResponsiveHeader/RepHeader';
 function Login() {
 	const navigate = useNavigate();
 
-	const [phone,setPhone] = useState("8848815569");
-	const [password,setPassword] = useState("Siyad@123");
+	const [phone,setPhone] = useState();
+	const [password,setPassword] = useState();
 	const [country,setCountry] = useState("IN");
 	const [message, setMessage] = useState();
 
-	const { updateUserData } = useContext(UserContext)
+	
+	const {dispatch} = useContext(UserContext) 
 	
 	const handleLoginSubmit = (e) => {
 		setMessage("");
@@ -38,7 +39,7 @@ function Login() {
 				let data = response.data;
 				if (data.status_code === 6000) {
 					localStorage.setItem("user_data", JSON.stringify(data.data));
-					updateUserData({type:"LOGIN" , payload: data.data});
+					dispatch({ type: "LOGIN", payload:data.data})
 					navigate("/")
 				} else {
 					const errors = data.data.errors;
